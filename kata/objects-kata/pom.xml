@@ -10,6 +10,6 @@
         <version>0.1.3</version>
     </parent>
 
-    <artifactId>VanguardBrewCollectionsKata</artifactId>
-    <name>Vanguard Brew - Katas - Collections Kata</name>
+    <artifactId>VanguardBrewObjeectsKata</artifactId>
+    <name>Vanguard Brew - Katas - Objects Kata</name>
 </project>
