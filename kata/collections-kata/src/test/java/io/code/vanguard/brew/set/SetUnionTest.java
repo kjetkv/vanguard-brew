@@ -18,7 +18,7 @@ public class SetUnionTest extends BasicKataTestBase {
             "E.g.: [[A, B], [B, C]] returns {A, B, C}")
     @Order(1)
     void testCrossListDuplicates() {
-        verify(new SetUnionKata(),
+        verifyBasicKata(new SetUnionKata(),
                 List.of(List.of("A", "B"), List.of("B", "C")),
                 Set.of("A", "B", "C"),
                 Set::equals);
@@ -29,7 +29,7 @@ public class SetUnionTest extends BasicKataTestBase {
             "E.g.: [[X, X, Y], [Z, Z]] returns {X, Y, Z}")
     @Order(2)
     void testInternalDuplicates() {
-        verify(new SetUnionKata(),
+        verifyBasicKata(new SetUnionKata(),
                 List.of(List.of("X", "X", "Y"), List.of("Z", "Z")),
                 Set.of("X", "Y", "Z"),
                 Set::equals);
@@ -40,7 +40,7 @@ public class SetUnionTest extends BasicKataTestBase {
             "E.g.: [[1, 2], [3, 4], [5, 6]] returns {1, 2, 3, 4, 5, 6}")
     @Order(3)
     void testDisjointLists() {
-        verify(new SetUnionKata(),
+        verifyBasicKata(new SetUnionKata(),
                 List.of(List.of("1", "2"), List.of("3", "4"), List.of("5", "6")),
                 Set.of("1", "2", "3", "4", "5", "6"),
                 Set::equals);
@@ -51,7 +51,7 @@ public class SetUnionTest extends BasicKataTestBase {
             "E.g.: [[Apple], [], [Banana]] returns {Apple, Banana}")
     @Order(4)
     void testEmptyListInTheMiddle() {
-        verify(new SetUnionKata(),
+        verifyBasicKata(new SetUnionKata(),
                 List.of(List.of("Apple"), List.of(), List.of("Banana")),
                 Set.of("Apple", "Banana"),
                 Set::equals);
@@ -62,7 +62,7 @@ public class SetUnionTest extends BasicKataTestBase {
             "E.g.: [[], []] returns {}")
     @Order(5)
     void testAllEmptyLists() {
-        verify(new SetUnionKata(),
+        verifyBasicKata(new SetUnionKata(),
                 List.of(List.of(), List.of()),
                 Set.of(),
                 Set::equals);

@@ -18,11 +18,8 @@ public class CompactGuardianTest extends BasicKataTestBase {
     @DisplayName("When providing valid credentials, successfully creates the record.")
     @Order(1)
     void testValidCredentials() {
-        verify(
+        verifyClass(
                 new CompactGuardianKata("admin_user", "SecurePass123!"),
-                compactGuardianKata -> {
-                    //Do nothing
-                },
                 CompactGuardianKata::username,
                 "admin_user",
                 Objects::equals
@@ -33,10 +30,9 @@ public class CompactGuardianTest extends BasicKataTestBase {
     @DisplayName("When the username is blank, throws an IllegalArgumentException.")
     @Order(2)
     void testBlankUsernameThrowsException() {
-        verify(
+        verifyException(
                 () -> new CompactGuardianKata("   ", "SecurePass123!"),
-                new IllegalArgumentException(),
-                verifySameExceptionClass
+                new IllegalArgumentException()
         );
     }
 
@@ -44,10 +40,9 @@ public class CompactGuardianTest extends BasicKataTestBase {
     @DisplayName("When the username is null, throws an IllegalArgumentException.")
     @Order(3)
     void testNullUsernameThrowsException() {
-        verify(
+        verifyException(
                 () -> new CompactGuardianKata(null, "SecurePass123!"),
-                new IllegalArgumentException(),
-                verifySameExceptionClass
+                new IllegalArgumentException()
         );
     }
 
@@ -55,10 +50,9 @@ public class CompactGuardianTest extends BasicKataTestBase {
     @DisplayName("When the password is less than 8 characters, throws an IllegalArgumentException.")
     @Order(4)
     void testShortPasswordThrowsException() {
-        verify(
+        verifyException(
                 () -> new CompactGuardianKata("admin_user", "short"),
-                new IllegalArgumentException(),
-                verifySameExceptionClass
+                new IllegalArgumentException()
         );
     }
 
@@ -66,10 +60,9 @@ public class CompactGuardianTest extends BasicKataTestBase {
     @DisplayName("When the password is null, throws an IllegalArgumentException.")
     @Order(5)
     void testNullPasswordThrowsException() {
-        verify(
+        verifyException(
                 () -> new CompactGuardianKata("admin_user", null),
-                new IllegalArgumentException(),
-                verifySameExceptionClass
+                new IllegalArgumentException()
         );
     }
 }

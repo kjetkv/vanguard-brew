@@ -18,7 +18,7 @@ public class SetIntersectionTest extends BasicKataTestBase {
             "E.g.: [[A, B, C], [B, C, D]] returns {B, C}")
     @Order(1)
     void testTwoListsOverlap() {
-        verify(new SetIntersectionKata(),
+        verifyBasicKata(new SetIntersectionKata(),
                 List.of(List.of("A", "B", "C"), List.of("B", "C", "D")),
                 Set.of("B", "C"),
                 Set::equals);
@@ -29,7 +29,7 @@ public class SetIntersectionTest extends BasicKataTestBase {
             "E.g.: [[A, B], [B, C], [B, D]] returns {B}")
     @Order(2)
     void testThreeListsOverlap() {
-        verify(new SetIntersectionKata(),
+        verifyBasicKata(new SetIntersectionKata(),
                 List.of(List.of("A", "B"), List.of("B", "C"), List.of("B", "D")),
                 Set.of("B"),
                 Set::equals);
@@ -40,7 +40,7 @@ public class SetIntersectionTest extends BasicKataTestBase {
             "E.g.: [[A, B], [B, C], [C, D]] returns {}")
     @Order(3)
     void testNoUniversalOverlap() {
-        verify(new SetIntersectionKata(),
+        verifyBasicKata(new SetIntersectionKata(),
                 List.of(List.of("A", "B"), List.of("B", "C"), List.of("C", "D")),
                 Set.of(),
                 Set::equals);
@@ -51,7 +51,7 @@ public class SetIntersectionTest extends BasicKataTestBase {
             "E.g.: [[X, Y], [X, Y], [X, Y]] returns {X, Y}")
     @Order(4)
     void testAllIdenticalLists() {
-        verify(new SetIntersectionKata(),
+        verifyBasicKata(new SetIntersectionKata(),
                 List.of(List.of("X", "Y"), List.of("X", "Y"), List.of("X", "Y")),
                 Set.of("X", "Y"),
                 Set::equals);
@@ -62,7 +62,7 @@ public class SetIntersectionTest extends BasicKataTestBase {
             "E.g.: [[A, B], [], [A, B]] returns {}")
     @Order(5)
     void testOneEmptyListRuinsIt() {
-        verify(new SetIntersectionKata(),
+        verifyBasicKata(new SetIntersectionKata(),
                 List.of(List.of("A", "B"), List.of(), List.of("A", "B")),
                 Set.of(),
                 Set::equals);

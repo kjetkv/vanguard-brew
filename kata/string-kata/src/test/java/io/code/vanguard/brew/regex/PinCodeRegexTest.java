@@ -19,7 +19,7 @@ public class PinCodeRegexTest extends BasicKataTestBase {
             "E.g.: 'Code is 1234' returns '1234'")
     @Order(1)
     void testFourDigitPin() {
-        verify(new PinCodeRegexKata(),
+        verifyNoArgKata(new PinCodeRegexKata(),
                 "9876",
                 regex -> regexGroupsAsString.apply(regex, "Your temporary access PIN is 9876."),
                 Objects::equals);
@@ -30,7 +30,7 @@ public class PinCodeRegexTest extends BasicKataTestBase {
             "E.g.: 'Auth code 123456' returns '123456'")
     @Order(2)
     void testSixDigitPin() {
-        verify(new PinCodeRegexKata(),
+        verifyNoArgKata(new PinCodeRegexKata(),
                 "555666",
                 regex -> regexGroupsAsString.apply(regex, "Enter the auth token 555666 to proceed."),
                 Objects::equals);
@@ -41,7 +41,7 @@ public class PinCodeRegexTest extends BasicKataTestBase {
             "E.g.: 'Room 101' returns ''")
     @Order(3)
     void testPinTooShort() {
-        verify(new PinCodeRegexKata(),
+        verifyNoArgKata(new PinCodeRegexKata(),
                 "",
                 regex -> regexGroupsAsString.apply(regex, "Agent 007, your mission begins now."),
                 Objects::equals);
@@ -52,7 +52,7 @@ public class PinCodeRegexTest extends BasicKataTestBase {
             "E.g.: 'Call 5551234' returns ''")
     @Order(4)
     void testPinTooLong() {
-        verify(new PinCodeRegexKata(),
+        verifyNoArgKata(new PinCodeRegexKata(),
                 "",
                 regex -> regexGroupsAsString.apply(regex, "My phone number is 8675309."),
                 Objects::equals);
@@ -63,7 +63,7 @@ public class PinCodeRegexTest extends BasicKataTestBase {
             "E.g.: '12, 1234, 1234567' returns '1234'")
     @Order(5)
     void testMixedLengthNumbers() {
-        verify(new PinCodeRegexKata(),
+        verifyNoArgKata(new PinCodeRegexKata(),
                 "1024,80808",
                 regex -> regexGroupsAsString.apply(regex, "Ports 80 and 443 are open. Proxies at 1024 and 80808."),
                 Objects::equals);

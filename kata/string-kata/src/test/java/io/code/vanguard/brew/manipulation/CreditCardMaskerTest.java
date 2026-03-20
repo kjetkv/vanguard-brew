@@ -17,7 +17,7 @@ public class CreditCardMaskerTest extends BasicKataTestBase {
             "E.g.: '1234567812345678' returns '############5678'")
     @Order(1)
     void testStandardSixteenDigits() {
-        verify(new CreditCardMaskerKata(),
+        verifyBasicKata(new CreditCardMaskerKata(),
                 "4532019988776543",
                 "############6543",
                 Objects::equals);
@@ -28,7 +28,7 @@ public class CreditCardMaskerTest extends BasicKataTestBase {
             "E.g.: '1234-5678' returns '####-5678'")
     @Order(2)
     void testStringWithSeparators() {
-        verify(new CreditCardMaskerKata(),
+        verifyBasicKata(new CreditCardMaskerKata(),
                 "867-5309-Jenny",
                 "##########enny",
                 Objects::equals);
@@ -39,7 +39,7 @@ public class CreditCardMaskerTest extends BasicKataTestBase {
             "E.g.: 'abcd' returns 'abcd'")
     @Order(3)
     void testExactlyFourCharacters() {
-        verify(new CreditCardMaskerKata(),
+        verifyBasicKata(new CreditCardMaskerKata(),
                 "N7",
                 "N7",
                 Objects::equals);
@@ -50,7 +50,7 @@ public class CreditCardMaskerTest extends BasicKataTestBase {
             "E.g.: '12' returns '12'")
     @Order(4)
     void testShortString() {
-        verify(new CreditCardMaskerKata(),
+        verifyBasicKata(new CreditCardMaskerKata(),
                 "HAL",
                 "HAL",
                 Objects::equals);
@@ -61,7 +61,7 @@ public class CreditCardMaskerTest extends BasicKataTestBase {
             "E.g.: 'SecretPassword123' returns '#############d123'")
     @Order(5)
     void testLongTextString() {
-        verify(new CreditCardMaskerKata(),
+        verifyBasicKata(new CreditCardMaskerKata(),
                 "ItsASecretToEverybody",
                 "#################body",
                 Objects::equals);

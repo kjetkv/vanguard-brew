@@ -21,7 +21,7 @@ public class AnimalListToMapTest extends BasicKataTestBase {
         var leo = new AnimalListToMapKata.Animal("A1", "Lion", "Leo");
         var polly = new AnimalListToMapKata.Animal("B2", "Parrot", "Polly");
 
-        verify(new AnimalListToMapKata(),
+        verifyBasicKata(new AnimalListToMapKata(),
                 List.of(leo, polly),
                 Map.of("A1", leo, "B2", polly),
                 Map::equals);
@@ -35,7 +35,7 @@ public class AnimalListToMapTest extends BasicKataTestBase {
         var dog = new AnimalListToMapKata.Animal("X1", "Dog", "Rover");
         var cat = new AnimalListToMapKata.Animal("X1", "Cat", "Whiskers");
 
-        verify(new AnimalListToMapKata(),
+        verifyBasicKata(new AnimalListToMapKata(),
                 List.of(dog, cat),
                 Map.of("X1", cat),
                 Map::equals);
@@ -48,7 +48,7 @@ public class AnimalListToMapTest extends BasicKataTestBase {
     void testListWithNullElement() {
         var turtle = new AnimalListToMapKata.Animal("T9", "Turtle", "Shelly");
 
-        verify(new AnimalListToMapKata(),
+        verifyBasicKata(new AnimalListToMapKata(),
                 java.util.Arrays.asList(turtle, null),
                 Map.of("T9", turtle),
                 Map::equals);
@@ -61,7 +61,7 @@ public class AnimalListToMapTest extends BasicKataTestBase {
     void testAnimalWithNullId() {
         var ghostAnimal = new AnimalListToMapKata.Animal(null, "Unknown", "Ghost");
 
-        verify(new AnimalListToMapKata(),
+        verifyBasicKata(new AnimalListToMapKata(),
                 List.of(ghostAnimal),
                 Map.of(),
                 Map::equals);
@@ -72,7 +72,7 @@ public class AnimalListToMapTest extends BasicKataTestBase {
             "E.g.: [] returns {}")
     @Order(5)
     void testEmptyList() {
-        verify(new AnimalListToMapKata(),
+        verifyBasicKata(new AnimalListToMapKata(),
                 List.of(),
                 Map.of(),
                 Map::equals);

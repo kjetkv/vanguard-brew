@@ -20,7 +20,7 @@ public class ImmutableFortressTest extends BasicKataTestBase {
     @DisplayName("When all properties are chained fluently, successfully builds the configuration.")
     @Order(1)
     void testFullBuilderFlow() {
-        verify(
+        verifyClass(
                 new ImmutableFortressKata.Builder(),
                 builder -> builder.host("api.foo.com")
                                   .port(443)
@@ -39,7 +39,7 @@ public class ImmutableFortressTest extends BasicKataTestBase {
     @DisplayName("When optional properties are omitted, the builder applies the correct defaults.")
     @Order(2)
     void testBuilderDefaults() {
-        verify(
+        verifyClass(
                 new ImmutableFortressKata.Builder(),
                 builder -> builder.host("localhost")
                                   .port(8080),
@@ -56,11 +56,10 @@ public class ImmutableFortressTest extends BasicKataTestBase {
     @DisplayName("When the mandatory 'host' field is missing, build() throws an IllegalStateException.")
     @Order(3)
     void testMissingHostThrowsException() {
-        verify(
+        verifyException(
                 () -> new ImmutableFortressKata.Builder().port(8080)
                                                          .build(),
-                new IllegalStateException(),
-                verifySameExceptionClass
+                new IllegalStateException()
         );
     }
 
@@ -68,11 +67,10 @@ public class ImmutableFortressTest extends BasicKataTestBase {
     @DisplayName("When the mandatory 'port' field is missing, build() throws an IllegalStateException.")
     @Order(4)
     void testMissingPortThrowsException() {
-        verify(
+        verifyException(
                 () -> new ImmutableFortressKata.Builder().host("localhost")
                                                          .build(),
-                new IllegalStateException(),
-                verifySameExceptionClass
+                new IllegalStateException()
         );
     }
 }

@@ -19,7 +19,7 @@ public class ImageFileRegexTest extends BasicKataTestBase {
             "E.g.: 'See avatar.png' returns 'avatar.png'")
     @Order(1)
     void testStandardImageFile() {
-        verify(new ImageFileRegexKata(),
+        verifyNoArgKata(new ImageFileRegexKata(),
                 "profile_pic.jpg",
                 regex -> regexGroupsAsString.apply(regex, "I just uploaded profile_pic.jpg to the server."),
                 Objects::equals);
@@ -30,7 +30,7 @@ public class ImageFileRegexTest extends BasicKataTestBase {
             "E.g.: 'a.jpg and b.png' returns 'a.jpg,b.png'")
     @Order(2)
     void testMultipleImageTypes() {
-        verify(new ImageFileRegexKata(),
+        verifyNoArgKata(new ImageFileRegexKata(),
                 "logo.png,banner.gif,background.jpg",
                 regex -> regexGroupsAsString.apply(regex, "Assets needed: logo.png, banner.gif, and background.jpg"),
                 Objects::equals);
@@ -41,7 +41,7 @@ public class ImageFileRegexTest extends BasicKataTestBase {
             "E.g.: 'data.csv' returns ''")
     @Order(3)
     void testNonImageExtensions() {
-        verify(new ImageFileRegexKata(),
+        verifyNoArgKata(new ImageFileRegexKata(),
                 "",
                 regex -> regexGroupsAsString.apply(regex, "Please review report.pdf and script.js before the meeting."),
                 Objects::equals);
@@ -53,7 +53,7 @@ public class ImageFileRegexTest extends BasicKataTestBase {
     @Order(4)
     void testFilePaths() {
         // Because \w+ doesn't match slashes, it naturally stops at the directory separator!
-        verify(new ImageFileRegexKata(),
+        verifyNoArgKata(new ImageFileRegexKata(),
                 "cat_meme.gif",
                 regex -> regexGroupsAsString.apply(regex, "Found a great file at /downloads/memes/cat_meme.gif yesterday."),
                 Objects::equals);
@@ -64,7 +64,7 @@ public class ImageFileRegexTest extends BasicKataTestBase {
             "E.g.: 'image.jpg_backup' returns ''")
     @Order(5)
     void testPartialExtensionMatch() {
-        verify(new ImageFileRegexKata(),
+        verifyNoArgKata(new ImageFileRegexKata(),
                 "",
                 regex -> regexGroupsAsString.apply(regex, "Restoring database.png_old and image.gif.bak"),
                 Objects::equals);

@@ -20,7 +20,7 @@ public class MeetingOverlapJudgeTest extends BasicKataTestBase {
             "E.g.: A(09:00-10:30), B(10:00-11:30) returns true")
     @Order(1)
     void testStandardOverlap() {
-        verify(new MeetingOverlapJudgeKata(),
+        verifyBasicKata(new MeetingOverlapJudgeKata(),
                 new MeetingRequest(
                         LocalTime.of(8, 15), LocalTime.of(10, 15),
                         LocalTime.of(9, 30), LocalTime.of(11, 30)
@@ -34,7 +34,7 @@ public class MeetingOverlapJudgeTest extends BasicKataTestBase {
             "E.g.: A(13:00-14:00), B(15:00-16:00) returns false")
     @Order(2)
     void testNoOverlap() {
-        verify(new MeetingOverlapJudgeKata(),
+        verifyBasicKata(new MeetingOverlapJudgeKata(),
                 new MeetingRequest(
                         LocalTime.of(13, 37), LocalTime.of(14, 0),
                         LocalTime.of(15, 0), LocalTime.of(16, 0)
@@ -48,7 +48,7 @@ public class MeetingOverlapJudgeTest extends BasicKataTestBase {
             "E.g.: A(11:00-12:00), B(12:00-13:00) returns false")
     @Order(3)
     void testExactBoundary() {
-        verify(new MeetingOverlapJudgeKata(),
+        verifyBasicKata(new MeetingOverlapJudgeKata(),
                 new MeetingRequest(
                         LocalTime.of(11, 0), LocalTime.of(12, 0),
                         LocalTime.of(12, 0), LocalTime.of(13, 0)
@@ -62,7 +62,7 @@ public class MeetingOverlapJudgeTest extends BasicKataTestBase {
             "E.g.: A(08:00-17:00), B(12:00-13:00) returns true")
     @Order(4)
     void testContainedMeeting() {
-        verify(new MeetingOverlapJudgeKata(),
+        verifyBasicKata(new MeetingOverlapJudgeKata(),
                 new MeetingRequest(
                         LocalTime.of(9, 0), LocalTime.of(17, 0),
                         LocalTime.of(12, 30), LocalTime.of(13, 30)
@@ -76,7 +76,7 @@ public class MeetingOverlapJudgeTest extends BasicKataTestBase {
             "E.g.: A(18:00-19:00), B(16:00-17:00) returns false")
     @Order(5)
     void testReversedOrderNoOverlap() {
-        verify(new MeetingOverlapJudgeKata(),
+        verifyBasicKata(new MeetingOverlapJudgeKata(),
                 new MeetingRequest(
                         LocalTime.of(20, 0), LocalTime.of(22, 0),
                         LocalTime.of(18, 0), LocalTime.of(19, 30)

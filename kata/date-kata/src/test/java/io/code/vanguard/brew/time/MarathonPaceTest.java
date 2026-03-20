@@ -20,7 +20,7 @@ public class MarathonPaceTest extends BasicKataTestBase {
             "E.g.: 50 minutes for 10km returns 5 minutes per km")
     @Order(1)
     void testEvenMinutePace() {
-        verify(new MarathonPaceKata(),
+        verifyBasicKata(new MarathonPaceKata(),
                 new PaceRequest(Duration.ofMinutes(50), 10),
                 Duration.ofMinutes(5),
                 Objects::equals);
@@ -31,7 +31,7 @@ public class MarathonPaceTest extends BasicKataTestBase {
             "E.g.: 2 hours 56 minutes 24 seconds for 42km returns 4 minutes 12 seconds per km")
     @Order(2)
     void testMarathonDistance() {
-        verify(new MarathonPaceKata(),
+        verifyBasicKata(new MarathonPaceKata(),
                 new PaceRequest(
                         Duration.ofHours(2).plusMinutes(56).plusSeconds(24),
                         42
@@ -45,7 +45,7 @@ public class MarathonPaceTest extends BasicKataTestBase {
             "E.g.: 24 minutes 10 seconds for 5km returns 4 minutes 50 seconds per km")
     @Order(3)
     void testFractionalSecondsPace() {
-        verify(new MarathonPaceKata(),
+        verifyBasicKata(new MarathonPaceKata(),
                 new PaceRequest(
                         Duration.ofMinutes(24).plusSeconds(10),
                         5
@@ -59,7 +59,7 @@ public class MarathonPaceTest extends BasicKataTestBase {
             "E.g.: 3 minutes 45 seconds for 1km returns 3 minutes 45 seconds per km")
     @Order(4)
     void testSingleKilometer() {
-        verify(new MarathonPaceKata(),
+        verifyBasicKata(new MarathonPaceKata(),
                 new PaceRequest(
                         Duration.ofMinutes(3).plusSeconds(45),
                         1
@@ -73,7 +73,7 @@ public class MarathonPaceTest extends BasicKataTestBase {
             "E.g.: 8 hours 20 minutes for 100km returns 5 minutes per km")
     @Order(5)
     void testUltraMarathon() {
-        verify(new MarathonPaceKata(),
+        verifyBasicKata(new MarathonPaceKata(),
                 new PaceRequest(
                         Duration.ofHours(8).plusMinutes(20),
                         100

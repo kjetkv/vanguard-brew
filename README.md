@@ -149,7 +149,7 @@ topic.
 | **`DateKatasSuite`**         | Calendar-based logic involving `LocalDate`, `Period`, and chronological calculations. |
 | **`TimeKatasSuite`**         | Clock-based logic involving `LocalTime`, and precise `Duration` measurements.         |
 | **`ConstructingKatasSuite`** | How to instanciate objects, and validations before                                    |
-
+| **`SealingKatasSuite`**      | Lock down domain models with sealed classes and exhaustive pattern matching           |
 ---
 
 ## 🛡 Why "Vanguard"?

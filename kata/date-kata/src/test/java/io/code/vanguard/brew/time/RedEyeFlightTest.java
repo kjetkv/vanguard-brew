@@ -20,7 +20,7 @@ public class RedEyeFlightTest extends BasicKataTestBase {
             "E.g.: Depart 08:00, Arrive 10:30 returns '2H 30M'")
     @Order(1)
     void testSameDayFlight() {
-        verify(new RedEyeFlightKata(),
+        verifyBasicKata(new RedEyeFlightKata(),
                 new FlightRequest(
                         LocalDateTime.of(2026, 5, 14, 14, 15),
                         LocalDateTime.of(2026, 5, 14, 17, 45)
@@ -34,7 +34,7 @@ public class RedEyeFlightTest extends BasicKataTestBase {
             "E.g.: Depart 22:00, Arrive 04:15 returns '6H 15M'")
     @Order(2)
     void testMidnightCrossing() {
-        verify(new RedEyeFlightKata(),
+        verifyBasicKata(new RedEyeFlightKata(),
                 new FlightRequest(
                         LocalDateTime.of(2026, 11, 2, 23, 30),
                         LocalDateTime.of(2026, 11, 3, 6, 15)
@@ -48,7 +48,7 @@ public class RedEyeFlightTest extends BasicKataTestBase {
             "E.g.: Depart Day 1 at 12:00, Arrive Day 4 at 14:00 returns '74H 0M'")
     @Order(3)
     void testMultiDayTransit() {
-        verify(new RedEyeFlightKata(),
+        verifyBasicKata(new RedEyeFlightKata(),
                 new FlightRequest(
                         LocalDateTime.of(1969, 7, 16, 13, 32),
                         LocalDateTime.of(1969, 7, 20, 20, 17)
@@ -62,7 +62,7 @@ public class RedEyeFlightTest extends BasicKataTestBase {
             "E.g.: Depart 10:00, Arrive 12:00 returns '2H 0M'")
     @Order(4)
     void testExactHourFlight() {
-        verify(new RedEyeFlightKata(),
+        verifyBasicKata(new RedEyeFlightKata(),
                 new FlightRequest(
                         LocalDateTime.of(2026, 8, 1, 9, 0),
                         LocalDateTime.of(2026, 8, 1, 14, 0)
@@ -76,7 +76,7 @@ public class RedEyeFlightTest extends BasicKataTestBase {
             "E.g.: Depart 10:00, Arrive 10:12 returns '0H 12M'")
     @Order(5)
     void testVeryShortFlight() {
-        verify(new RedEyeFlightKata(),
+        verifyBasicKata(new RedEyeFlightKata(),
                 new FlightRequest(
                         LocalDateTime.of(1903, 12, 17, 10, 35),
                         LocalDateTime.of(1903, 12, 17, 10, 36)

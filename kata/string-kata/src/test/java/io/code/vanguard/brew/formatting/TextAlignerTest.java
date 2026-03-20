@@ -17,7 +17,7 @@ public class TextAlignerTest extends BasicKataTestBase {
             "E.g.: ['cat', 'hippopotamus'] returns ['         cat', 'hippopotamus']")
     @Order(1)
     void testStandardAlignment() {
-        verify(new TextAlignerKata(),
+        verifyBasicKata(new TextAlignerKata(),
                 List.of("Han", "Luke", "Chewbacca"),
                 List.of("      Han", "     Luke", "Chewbacca"),
                 List::equals);
@@ -28,7 +28,7 @@ public class TextAlignerTest extends BasicKataTestBase {
             "E.g.: ['one', 'two', 'six'] returns ['one', 'two', 'six']")
     @Order(2)
     void testAlreadyAligned() {
-        verify(new TextAlignerKata(),
+        verifyBasicKata(new TextAlignerKata(),
                 List.of("Neo", "Fly", "Doc"),
                 List.of("Neo", "Fly", "Doc"),
                 List::equals);
@@ -39,7 +39,7 @@ public class TextAlignerTest extends BasicKataTestBase {
             "E.g.: ['apple'] returns ['apple']")
     @Order(3)
     void testSingleItem() {
-        verify(new TextAlignerKata(),
+        verifyBasicKata(new TextAlignerKata(),
                 List.of("Batman"),
                 List.of("Batman"),
                 List::equals);
@@ -50,7 +50,7 @@ public class TextAlignerTest extends BasicKataTestBase {
             "E.g.: ['a', '', 'abc'] returns ['  a', '   ', 'abc']")
     @Order(4)
     void testListWithEmptyStrings() {
-        verify(new TextAlignerKata(),
+        verifyBasicKata(new TextAlignerKata(),
                 List.of("Stark", "", "Thor"),
                 List.of("Stark", "     ", " Thor"),
                 List::equals);
@@ -61,7 +61,7 @@ public class TextAlignerTest extends BasicKataTestBase {
             "E.g.: [] returns []")
     @Order(5)
     void testEmptyList() {
-        verify(new TextAlignerKata(),
+        verifyBasicKata(new TextAlignerKata(),
                 List.of(),
                 List.of(),
                 List::equals);

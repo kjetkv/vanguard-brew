@@ -20,11 +20,8 @@ public class FailFastArchitectTest extends BasicKataTestBase {
     @DisplayName("When providing a perfectly formatted payload, successfully parses and initializes the superclass.")
     @Order(1)
     void testSuccessfulInitialization() {
-        verify(
+        verifyClass(
                 new SmartSystemInitializer("1042:ADMIN"),
-                system -> {
-                    //Do nothing
-                },
                 FailFastArchitectKata::getStatus,
                 "System 1042 initialized as ADMIN",
                 Objects::equals
@@ -35,10 +32,9 @@ public class FailFastArchitectTest extends BasicKataTestBase {
     @DisplayName("When providing a payload missing the delimiter, throws an IllegalArgumentException")
     @Order(2)
     void testMissingDelimiterFailFast() {
-        verify(
+        verifyException(
                 () -> new SmartSystemInitializer("1042ADMIN"),
-                new IllegalArgumentException(),
-                verifySameExceptionClass
+                new IllegalArgumentException()
         );
     }
 
@@ -46,10 +42,9 @@ public class FailFastArchitectTest extends BasicKataTestBase {
     @DisplayName("When providing a payload with an ID below 1000, throws an IllegalArgumentException.")
     @Order(3)
     void testInvalidIdFailFast() {
-        verify(
+        verifyException(
                 () -> new SmartSystemInitializer("999:USER"),
-                new IllegalArgumentException(),
-                verifySameExceptionClass
+                new IllegalArgumentException()
         );
     }
 
@@ -57,10 +52,9 @@ public class FailFastArchitectTest extends BasicKataTestBase {
     @DisplayName("When providing a payload with too many segments, throws an IllegalArgumentException.")
     @Order(4)
     void testMalformedFormatFailFast() {
-        verify(
+        verifyException(
                 () -> new SmartSystemInitializer("1042:ADMIN:EXTRA"),
-                new IllegalArgumentException(),
-                verifySameExceptionClass
+                new IllegalArgumentException()
         );
     }
 
@@ -68,10 +62,9 @@ public class FailFastArchitectTest extends BasicKataTestBase {
     @DisplayName("When providing a completely null payload, throws an IllegalArgumentException.")
     @Order(5)
     void testNullPayloadFailFast() {
-        verify(
+        verifyException(
                 () -> new SmartSystemInitializer(null),
-                new IllegalArgumentException(),
-                verifySameExceptionClass
+                new IllegalArgumentException()
         );
     }
 }

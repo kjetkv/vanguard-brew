@@ -17,7 +17,7 @@ public class StringLengthsTest extends BasicKataTestBase {
             "E.g.: ['apple', 'cat'] returns [5, 3]")
     @Order(1)
     void testStandardWords() {
-        verify(new StringLengthsKata(),
+        verifyBasicKata(new StringLengthsKata(),
                 List.of("apple", "cat", "banana"),
                 List.of(5, 3, 6),
                 List::equals);
@@ -28,7 +28,7 @@ public class StringLengthsTest extends BasicKataTestBase {
             "E.g.: ['a', '', 'b'] returns [1, 0, 1]")
     @Order(2)
     void testEmptyStrings() {
-        verify(new StringLengthsKata(),
+        verifyBasicKata(new StringLengthsKata(),
                 List.of("a", "", "b"),
                 List.of(1, 0, 1),
                 List::equals);
@@ -39,7 +39,7 @@ public class StringLengthsTest extends BasicKataTestBase {
             "E.g.: ['hello world', ' '] returns [11, 1]")
     @Order(3)
     void testStringsWithSpaces() {
-        verify(new StringLengthsKata(),
+        verifyBasicKata(new StringLengthsKata(),
                 List.of("hello world", " ", "java 25"),
                 List.of(11, 1, 7),
                 List::equals);
@@ -50,7 +50,7 @@ public class StringLengthsTest extends BasicKataTestBase {
             "E.g.: ['supercalifragilisticexpialidocious'] returns [34]")
     @Order(4)
     void testSingleLongString() {
-        verify(new StringLengthsKata(),
+        verifyBasicKata(new StringLengthsKata(),
                 List.of("supercalifragilisticexpialidocious"),
                 List.of(34),
                 List::equals);
@@ -61,7 +61,7 @@ public class StringLengthsTest extends BasicKataTestBase {
             "E.g.: [] returns []")
     @Order(5)
     void testEmptyList() {
-        verify(new StringLengthsKata(),
+        verifyBasicKata(new StringLengthsKata(),
                 List.of(),
                 List.of(),
                 List::equals);

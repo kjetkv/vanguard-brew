@@ -17,7 +17,7 @@ public class FixedLengthChunkerTest extends BasicKataTestBase {
             "E.g.: 'abcdef' size 2 returns ['ab', 'cd', 'ef']")
     @Order(1)
     void testPerfectChunks() {
-        verify(new FixedLengthChunkerKata(),
+        verifyBasicKata(new FixedLengthChunkerKata(),
                 new FixedLengthChunkerKata.ChunkRequest("Autobots", 4),
                 List.of("Auto", "bots"),
                 List::equals);
@@ -28,7 +28,7 @@ public class FixedLengthChunkerTest extends BasicKataTestBase {
             "E.g.: 'abcde' size 2 returns ['ab', 'cd', 'e']")
     @Order(2)
     void testUnevenChunks() {
-        verify(new FixedLengthChunkerKata(),
+        verifyBasicKata(new FixedLengthChunkerKata(),
                 new FixedLengthChunkerKata.ChunkRequest("WakandaForever", 3),
                 List.of("Wak", "and", "aFo", "rev", "er"),
                 List::equals);
@@ -39,7 +39,7 @@ public class FixedLengthChunkerTest extends BasicKataTestBase {
             "E.g.: 'dog' size 1 returns ['d', 'o', 'g']")
     @Order(3)
     void testSingleCharacterChunks() {
-        verify(new FixedLengthChunkerKata(),
+        verifyBasicKata(new FixedLengthChunkerKata(),
                 new FixedLengthChunkerKata.ChunkRequest("Groot", 1),
                 List.of("G", "r", "o", "o", "t"),
                 List::equals);
@@ -50,7 +50,7 @@ public class FixedLengthChunkerTest extends BasicKataTestBase {
             "E.g.: 'cat' size 10 returns ['cat']")
     @Order(4)
     void testOversizedChunk() {
-        verify(new FixedLengthChunkerKata(),
+        verifyBasicKata(new FixedLengthChunkerKata(),
                 new FixedLengthChunkerKata.ChunkRequest("HulkSmash", 50),
                 List.of("HulkSmash"),
                 List::equals);
@@ -61,7 +61,7 @@ public class FixedLengthChunkerTest extends BasicKataTestBase {
             "E.g.: '' size 5 returns []")
     @Order(5)
     void testEmptyString() {
-        verify(new FixedLengthChunkerKata(),
+        verifyBasicKata(new FixedLengthChunkerKata(),
                 new FixedLengthChunkerKata.ChunkRequest("", 5),
                 List.of(),
                 List::equals);

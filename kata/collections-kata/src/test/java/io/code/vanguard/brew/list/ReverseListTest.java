@@ -17,7 +17,7 @@ public class ReverseListTest extends BasicKataTestBase {
             "E.g.: [1, 2, 3] returns [3, 2, 1]")
     @Order(1)
     void testStandardReverse() {
-        verify(new ReverseListKata(),
+        verifyBasicKata(new ReverseListKata(),
                 List.of(1, 2, 3, 4),
                 List.of(4, 3, 2, 1),
                 List::equals);
@@ -28,7 +28,7 @@ public class ReverseListTest extends BasicKataTestBase {
             "E.g.: [-1, -2, -3] returns [-3, -2, -1]")
     @Order(2)
     void testNegativeNumbersReverse() {
-        verify(new ReverseListKata(),
+        verifyBasicKata(new ReverseListKata(),
                 List.of(-1, -2, -3),
                 List.of(-3, -2, -1),
                 List::equals);
@@ -39,7 +39,7 @@ public class ReverseListTest extends BasicKataTestBase {
             "E.g.: [1, 2, 1] returns [1, 2, 1]")
     @Order(3)
     void testPalindromeList() {
-        verify(new ReverseListKata(),
+        verifyBasicKata(new ReverseListKata(),
                 List.of(1, 2, 3, 2, 1),
                 List.of(1, 2, 3, 2, 1),
                 List::equals);
@@ -50,7 +50,7 @@ public class ReverseListTest extends BasicKataTestBase {
             "E.g.: [42] returns [42]")
     @Order(4)
     void testSingleElementList() {
-        verify(new ReverseListKata(),
+        verifyBasicKata(new ReverseListKata(),
                 List.of(42),
                 List.of(42),
                 List::equals);

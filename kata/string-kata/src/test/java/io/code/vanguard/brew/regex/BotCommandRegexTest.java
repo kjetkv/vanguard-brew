@@ -19,7 +19,7 @@ public class BotCommandRegexTest extends BasicKataTestBase {
             "E.g.: '/dance now' returns '/dance'")
     @Order(1)
     void testCommandAtStart() {
-        verify(new BotCommandRegexKata(),
+        verifyNoArgKata(new BotCommandRegexKata(),
                 "/start",
                 regex -> regexGroupsAsString.apply(regex, "/start the game please."),
                 Objects::equals);
@@ -30,7 +30,7 @@ public class BotCommandRegexTest extends BasicKataTestBase {
             "E.g.: 'I need /help' returns ''")
     @Order(2)
     void testCommandInMiddle() {
-        verify(new BotCommandRegexKata(),
+        verifyNoArgKata(new BotCommandRegexKata(),
                 "",
                 regex -> regexGroupsAsString.apply(regex, "Hey everyone, type /join to enter."),
                 Objects::equals);
@@ -41,7 +41,7 @@ public class BotCommandRegexTest extends BasicKataTestBase {
             "E.g.: '/roll and /stats' returns '/roll'")
     @Order(3)
     void testMultipleCommands() {
-        verify(new BotCommandRegexKata(),
+        verifyNoArgKata(new BotCommandRegexKata(),
                 "/kick",
                 regex -> regexGroupsAsString.apply(regex, "/kick user1 and /ban user2"),
                 Objects::equals);
@@ -52,7 +52,7 @@ public class BotCommandRegexTest extends BasicKataTestBase {
             "E.g.: '/ 123' returns ''")
     @Order(4)
     void testInvalidCommandFormat() {
-        verify(new BotCommandRegexKata(),
+        verifyNoArgKata(new BotCommandRegexKata(),
                 "",
                 regex -> regexGroupsAsString.apply(regex, "/ ? what is this"),
                 Objects::equals);
@@ -63,7 +63,7 @@ public class BotCommandRegexTest extends BasicKataTestBase {
             "E.g.: ' /ping' returns ''")
     @Order(5)
     void testSpaceBeforeCommand() {
-        verify(new BotCommandRegexKata(),
+        verifyNoArgKata(new BotCommandRegexKata(),
                 "",
                 regex -> regexGroupsAsString.apply(regex, "   /status"),
                 Objects::equals);

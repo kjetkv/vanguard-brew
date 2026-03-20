@@ -19,7 +19,7 @@ public class DateRegexTest extends BasicKataTestBase {
             "E.g.: 'Today is 2026-02-25' returns '2026-02-25'")
     @Order(1)
     void testStandardDate() {
-        verify(new DateRegexKata(),
+        verifyNoArgKata(new DateRegexKata(),
                 "1997-08-29",
                 regex -> regexGroupsAsString.apply(regex, "Skynet became self-aware on 1997-08-29."),
                 Objects::equals);
@@ -30,7 +30,7 @@ public class DateRegexTest extends BasicKataTestBase {
             "E.g.: 'From 2020-01-01 to 2021-01-01' returns '2020-01-01,2021-01-01'")
     @Order(2)
     void testMultipleDates() {
-        verify(new DateRegexKata(),
+        verifyNoArgKata(new DateRegexKata(),
                 "3018-12-25,3019-03-25",
                 regex -> regexGroupsAsString.apply(regex, "The Fellowship departed on 3018-12-25 and the Ring was destroyed on 3019-03-25."),
                 Objects::equals);
@@ -41,7 +41,7 @@ public class DateRegexTest extends BasicKataTestBase {
             "E.g.: 'Created 2024/01/01' returns ''")
     @Order(3)
     void testWrongSeparators() {
-        verify(new DateRegexKata(),
+        verifyNoArgKata(new DateRegexKata(),
                 "",
                 regex -> regexGroupsAsString.apply(regex, "Update 1999/12/31 and 1999.12.31 failed."),
                 Objects::equals);
@@ -52,7 +52,7 @@ public class DateRegexTest extends BasicKataTestBase {
             "E.g.: 'Year 2024-05' returns ''")
     @Order(4)
     void testIncompleteDates() {
-        verify(new DateRegexKata(),
+        verifyNoArgKata(new DateRegexKata(),
                 "",
                 regex -> regexGroupsAsString.apply(regex, "The Mayan calendar ended in 2012-12 roughly."),
                 Objects::equals);
@@ -63,7 +63,7 @@ public class DateRegexTest extends BasicKataTestBase {
             "E.g.: 'Event on 25-02-2026' returns ''")
     @Order(5)
     void testReversedFormat() {
-        verify(new DateRegexKata(),
+        verifyNoArgKata(new DateRegexKata(),
                 "",
                 regex -> regexGroupsAsString.apply(regex, "Remember the 05-11-1605 gunpowder treason."),
                 Objects::equals);

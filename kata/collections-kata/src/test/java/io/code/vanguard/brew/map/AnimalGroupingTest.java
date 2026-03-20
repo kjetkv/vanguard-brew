@@ -22,7 +22,7 @@ public class AnimalGroupingTest extends BasicKataTestBase {
         var dog2 = new AnimalGroupingKata.Animal("2", "Dog", "Spot");
         var cat1 = new AnimalGroupingKata.Animal("3", "Cat", "Whiskers");
 
-        verify(new AnimalGroupingKata(),
+        verifyBasicKata(new AnimalGroupingKata(),
                 List.of(dog1, cat1, dog2),
                 Map.of("Dog", List.of(dog1, dog2),
                         "Cat", List.of(cat1)),
@@ -37,7 +37,7 @@ public class AnimalGroupingTest extends BasicKataTestBase {
         var bird1 = new AnimalGroupingKata.Animal("B1", "Bird", "Tweety");
         var bird2 = new AnimalGroupingKata.Animal("B2", "Bird", "Polly");
 
-        verify(new AnimalGroupingKata(),
+        verifyBasicKata(new AnimalGroupingKata(),
                 List.of(bird1, bird2),
                 Map.of("Bird", List.of(bird1, bird2)),
                 Map::equals);
@@ -52,7 +52,7 @@ public class AnimalGroupingTest extends BasicKataTestBase {
         var cat = new AnimalGroupingKata.Animal("C", "Cat", "Luna");
         var fish = new AnimalGroupingKata.Animal("F", "Fish", "Nemo");
 
-        verify(new AnimalGroupingKata(),
+        verifyBasicKata(new AnimalGroupingKata(),
                 List.of(dog, cat, fish),
                 Map.of("Dog", List.of(dog),
                         "Cat", List.of(cat),
@@ -72,7 +72,7 @@ public class AnimalGroupingTest extends BasicKataTestBase {
         Map<String, List<AnimalGroupingKata.Animal>> expectedMap = new java.util.HashMap<>();
         expectedMap.put("Unknown", List.of(unknownAnimal));
 
-        verify(new AnimalGroupingKata(),
+        verifyBasicKata(new AnimalGroupingKata(),
                 List.of(unknownAnimal),
                 expectedMap,
                 Map::equals);

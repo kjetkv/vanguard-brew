@@ -18,7 +18,7 @@ public class SprintPlannerTest extends BasicKataTestBase {
             "E.g.: Monday '2026-03-02' to Friday '2026-03-06' returns 5")
     @Order(1)
     void testStandardWorkWeek() {
-        verify(new SprintPlannerKata(),
+        verifyBasicKata(new SprintPlannerKata(),
                 new SprintPlannerKata.SprintRequest(
                         LocalDate.of(1969, 7, 14),
                         LocalDate.of(1969, 7, 18)
@@ -32,7 +32,7 @@ public class SprintPlannerTest extends BasicKataTestBase {
             "E.g.: Thursday '2026-03-05' to Tuesday '2026-03-10' returns 4")
     @Order(2)
     void testSpanningAWeekend() {
-        verify(new SprintPlannerKata(),
+        verifyBasicKata(new SprintPlannerKata(),
                 new SprintPlannerKata.SprintRequest(
                         LocalDate.of(2001, 12, 19),
                         LocalDate.of(2001, 12, 25)
@@ -46,7 +46,7 @@ public class SprintPlannerTest extends BasicKataTestBase {
             "E.g.: Wednesday '2026-03-04' to Wednesday '2026-03-04' returns 1")
     @Order(3)
     void testSingleWeekday() {
-        verify(new SprintPlannerKata(),
+        verifyBasicKata(new SprintPlannerKata(),
                 new SprintPlannerKata.SprintRequest(
                         LocalDate.of(2015, 10, 21),
                         LocalDate.of(2015, 10, 21)
@@ -60,7 +60,7 @@ public class SprintPlannerTest extends BasicKataTestBase {
             "E.g.: Saturday '2026-03-07' to Sunday '2026-03-08' returns 0")
     @Order(4)
     void testOnlyWeekendDays() {
-        verify(new SprintPlannerKata(),
+        verifyBasicKata(new SprintPlannerKata(),
                 new SprintPlannerKata.SprintRequest(
                         LocalDate.of(1985, 10, 26),
                         LocalDate.of(1985, 10, 27)
@@ -74,7 +74,7 @@ public class SprintPlannerTest extends BasicKataTestBase {
             "E.g.: Monday '2026-03-02' to Sunday '2026-03-15' returns 10")
     @Order(5)
     void testMultipleWeeks() {
-        verify(new SprintPlannerKata(),
+        verifyBasicKata(new SprintPlannerKata(),
                 new SprintPlannerKata.SprintRequest(
                         LocalDate.of(1977, 5, 25),
                         LocalDate.of(1977, 6, 8)

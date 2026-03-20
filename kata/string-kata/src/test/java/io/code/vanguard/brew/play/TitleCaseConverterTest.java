@@ -17,7 +17,7 @@ public class TitleCaseConverterTest extends BasicKataTestBase {
             "E.g.: 'java is fun' returns 'Java Is Fun'")
     @Order(1)
     void testStandardLowercase() {
-        verify(new TitleCaseConverterKata(),
+        verifyBasicKata(new TitleCaseConverterKata(),
                 "to infinity and beyond",
                 "To Infinity And Beyond",
                 Objects::equals);
@@ -28,7 +28,7 @@ public class TitleCaseConverterTest extends BasicKataTestBase {
             "E.g.: 'cRaZy CaSe' returns 'Crazy Case'")
     @Order(2)
     void testMixedCasing() {
-        verify(new TitleCaseConverterKata(),
+        verifyBasicKata(new TitleCaseConverterKata(),
                 "wInTeR iS cOmInG",
                 "Winter Is Coming",
                 Objects::equals);
@@ -39,7 +39,7 @@ public class TitleCaseConverterTest extends BasicKataTestBase {
             "E.g.: 'a cat' returns 'A Cat'")
     @Order(3)
     void testSingleLetters() {
-        verify(new TitleCaseConverterKata(),
+        verifyBasicKata(new TitleCaseConverterKata(),
                 "i am iron man",
                 "I Am Iron Man",
                 Objects::equals);
@@ -50,7 +50,7 @@ public class TitleCaseConverterTest extends BasicKataTestBase {
             "E.g.: 'player 1 start!' returns 'Player 1 Start!'")
     @Order(4)
     void testNumbersAndPunctuation() {
-        verify(new TitleCaseConverterKata(),
+        verifyBasicKata(new TitleCaseConverterKata(),
                 "g0tta catch 'em a11!",
                 "G0tta Catch 'em A11!",
                 Objects::equals);

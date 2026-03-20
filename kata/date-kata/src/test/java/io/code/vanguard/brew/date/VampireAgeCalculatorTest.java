@@ -18,7 +18,7 @@ public class VampireAgeCalculatorTest extends BasicKataTestBase {
             "E.g.: '1990-01-01' to '2020-01-01' returns 30")
     @Order(1)
     void testStandardAge() {
-        verify(new VampireAgeCalculatorKata(),
+        verifyBasicKata(new VampireAgeCalculatorKata(),
                 new VampireAgeCalculatorKata.AgeRequest(
                         LocalDate.of(1431, 11, 8),
                         LocalDate.of(2026, 11, 8)
@@ -32,7 +32,7 @@ public class VampireAgeCalculatorTest extends BasicKataTestBase {
             "E.g.: '1900-12-31' to '2000-01-01' returns 99")
     @Order(2)
     void testBeforeBirthdayThisYear() {
-        verify(new VampireAgeCalculatorKata(),
+        verifyBasicKata(new VampireAgeCalculatorKata(),
                 new VampireAgeCalculatorKata.AgeRequest(
                         LocalDate.of(1760, 11, 7),
                         LocalDate.of(2026, 10, 31)
@@ -46,7 +46,7 @@ public class VampireAgeCalculatorTest extends BasicKataTestBase {
             "E.g.: '1800-05-05' to '1900-05-05' returns 100")
     @Order(3)
     void testExactlyOnBirthday() {
-        verify(new VampireAgeCalculatorKata(),
+        verifyBasicKata(new VampireAgeCalculatorKata(),
                 new VampireAgeCalculatorKata.AgeRequest(
                         LocalDate.of(1901, 6, 20),
                         LocalDate.of(2005, 6, 20)
@@ -60,7 +60,7 @@ public class VampireAgeCalculatorTest extends BasicKataTestBase {
             "E.g.: '1604-02-29' to '1700-03-01' returns 96")
     @Order(4)
     void testLeapYearBirthday() {
-        verify(new VampireAgeCalculatorKata(),
+        verifyBasicKata(new VampireAgeCalculatorKata(),
                 new VampireAgeCalculatorKata.AgeRequest(
                         LocalDate.of(1260, 2, 29),
                         LocalDate.of(2026, 2, 28)
@@ -74,7 +74,7 @@ public class VampireAgeCalculatorTest extends BasicKataTestBase {
             "E.g.: '2020-05-01' to '2020-10-31' returns 0")
     @Order(5)
     void testNewbornVampire() {
-        verify(new VampireAgeCalculatorKata(),
+        verifyBasicKata(new VampireAgeCalculatorKata(),
                 new VampireAgeCalculatorKata.AgeRequest(
                         LocalDate.of(2026, 1, 1),
                         LocalDate.of(2026, 8, 15)

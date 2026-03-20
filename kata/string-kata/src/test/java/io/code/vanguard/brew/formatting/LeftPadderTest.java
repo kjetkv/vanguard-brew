@@ -17,7 +17,7 @@ public class LeftPadderTest extends BasicKataTestBase {
             "E.g.: '42' (length 5, char '0') returns '00042'")
     @Order(1)
     void testStandardPadding() {
-        verify(new LeftPadderKata(),
+        verifyBasicKata(new LeftPadderKata(),
                 new LeftPadderKata.PadRequest("7", 3, '0'),
                 "007",
                 Objects::equals);
@@ -28,7 +28,7 @@ public class LeftPadderTest extends BasicKataTestBase {
             "E.g.: 'cat' (length 6, char '*') returns '***cat'")
     @Order(2)
     void testSymbolPadding() {
-        verify(new LeftPadderKata(),
+        verifyBasicKata(new LeftPadderKata(),
                 new LeftPadderKata.PadRequest("Jedi", 10, '*'),
                 "******Jedi",
                 Objects::equals);
@@ -39,7 +39,7 @@ public class LeftPadderTest extends BasicKataTestBase {
             "E.g.: 'hello' (length 5, char '-') returns 'hello'")
     @Order(3)
     void testExactLength() {
-        verify(new LeftPadderKata(),
+        verifyBasicKata(new LeftPadderKata(),
                 new LeftPadderKata.PadRequest("Matrix", 6, ' '),
                 "Matrix",
                 Objects::equals);
@@ -50,7 +50,7 @@ public class LeftPadderTest extends BasicKataTestBase {
             "E.g.: 'superman' (length 4, char '0') returns 'superman'")
     @Order(4)
     void testTargetLengthTooSmall() {
-        verify(new LeftPadderKata(),
+        verifyBasicKata(new LeftPadderKata(),
                 new LeftPadderKata.PadRequest("Voldemort", 5, 'X'),
                 "Voldemort",
                 Objects::equals);
@@ -61,7 +61,7 @@ public class LeftPadderTest extends BasicKataTestBase {
             "E.g.: '' (length 4, char '-') returns '----'")
     @Order(5)
     void testEmptyString() {
-        verify(new LeftPadderKata(),
+        verifyBasicKata(new LeftPadderKata(),
                 new LeftPadderKata.PadRequest("", 8, '-'),
                 "--------",
                 Objects::equals);

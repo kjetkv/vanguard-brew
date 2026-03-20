@@ -17,7 +17,7 @@ public class EvensOnlyTest extends BasicKataTestBase {
             "E.g.: [1, 2, 3, 4] returns [2, 4]")
     @Order(1)
     void testMixedNumbers() {
-        verify(new EvensOnlyKata(),
+        verifyBasicKata(new EvensOnlyKata(),
                 List.of(1, 2, 3, 4, 5, 8),
                 List.of(2, 4, 8),
                 List::equals);
@@ -28,7 +28,7 @@ public class EvensOnlyTest extends BasicKataTestBase {
             "E.g.: [1, 3, 5] returns []")
     @Order(2)
     void testAllOdds() {
-        verify(new EvensOnlyKata(),
+        verifyBasicKata(new EvensOnlyKata(),
                 List.of(1, 3, 5, 7, 9),
                 List.of(),
                 List::equals);
@@ -39,7 +39,7 @@ public class EvensOnlyTest extends BasicKataTestBase {
             "E.g.: [2, 10, 4] returns [2, 10, 4]")
     @Order(3)
     void testAllEvens() {
-        verify(new EvensOnlyKata(),
+        verifyBasicKata(new EvensOnlyKata(),
                 List.of(2, 10, 4, 6),
                 List.of(2, 10, 4, 6),
                 List::equals);
@@ -50,7 +50,7 @@ public class EvensOnlyTest extends BasicKataTestBase {
             "E.g.: [0, 7, 4] returns [0, 4]")
     @Order(4)
     void testIncludesZero() {
-        verify(new EvensOnlyKata(),
+        verifyBasicKata(new EvensOnlyKata(),
                 List.of(0, 7, 4, 1),
                 List.of(0, 4),
                 List::equals);
@@ -63,7 +63,7 @@ public class EvensOnlyTest extends BasicKataTestBase {
     void testNegativeNumbers() {
         // This is a great test because beginners sometimes write `num % 2 == 1` for odds instead of `!= 0`,
         // which breaks on negatives! Testing evens with `% 2 == 0` is safer, and this proves it works.
-        verify(new EvensOnlyKata(),
+        verifyBasicKata(new EvensOnlyKata(),
                 List.of(-2, -3, -4, 5, -8),
                 List.of(-2, -4, -8),
                 List::equals);

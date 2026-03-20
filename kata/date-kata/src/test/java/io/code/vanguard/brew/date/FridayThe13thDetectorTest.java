@@ -17,7 +17,7 @@ public class FridayThe13thDetectorTest extends BasicKataTestBase {
             "E.g.: Year 2023, Month 10 returns true")
     @Order(1)
     void testStandardFridayThe13th() {
-        verify(new FridayThe13thDetectorKata(),
+        verifyBasicKata(new FridayThe13thDetectorKata(),
                 new FridayThe13thDetectorKata.YearMonthRequest(1980, 6),
                 true,
                 Objects::equals);
@@ -28,7 +28,7 @@ public class FridayThe13thDetectorTest extends BasicKataTestBase {
             "E.g.: Year 2023, Month 11 returns false")
     @Order(2)
     void testNotAFriday() {
-        verify(new FridayThe13thDetectorKata(),
+        verifyBasicKata(new FridayThe13thDetectorKata(),
                 new FridayThe13thDetectorKata.YearMonthRequest(1983, 1),
                 false,
                 Objects::equals);
@@ -39,7 +39,7 @@ public class FridayThe13thDetectorTest extends BasicKataTestBase {
             "E.g.: Year 2020, Month 3 returns true")
     @Order(3)
     void testLeapYearFridayThe13th() {
-        verify(new FridayThe13thDetectorKata(),
+        verifyBasicKata(new FridayThe13thDetectorKata(),
                 new FridayThe13thDetectorKata.YearMonthRequest(2020, 3),
                 true,
                 Objects::equals);
@@ -50,7 +50,7 @@ public class FridayThe13thDetectorTest extends BasicKataTestBase {
             "E.g.: Year 1307, Month 10 returns true")
     @Order(4)
     void testHistoricalFridayThe13th() {
-        verify(new FridayThe13thDetectorKata(),
+        verifyBasicKata(new FridayThe13thDetectorKata(),
                 new FridayThe13thDetectorKata.YearMonthRequest(1307, 10),
                 true,
                 Objects::equals);
@@ -61,7 +61,7 @@ public class FridayThe13thDetectorTest extends BasicKataTestBase {
             "E.g.: Year 2026, Month 2 returns true")
     @Order(5)
     void testFutureFridayThe13th() {
-        verify(new FridayThe13thDetectorKata(),
+        verifyBasicKata(new FridayThe13thDetectorKata(),
                 new FridayThe13thDetectorKata.YearMonthRequest(2026, 2),
                 true,
                 Objects::equals);

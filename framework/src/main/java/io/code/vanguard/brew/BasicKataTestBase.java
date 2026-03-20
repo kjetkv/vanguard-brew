@@ -1,6 +1,5 @@
 package io.code.vanguard.brew;
 
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -19,6 +18,7 @@ import static io.code.vanguard.brew.Printerface.prettyFormat;
 import static io.code.vanguard.brew.Printerface.printFrame;
 import static io.code.vanguard.brew.Printerface.printText;
 import static io.code.vanguard.brew.Printerface.printWithHeader;
+import static io.code.vanguard.brew.Validators.verifySameExceptionClass;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class BasicKataTestBase {
@@ -57,10 +57,10 @@ public class BasicKataTestBase {
      * @param <I>      Input type
      * @param <R>      Result type
      */
-    protected <I, R> void verify(BasicKata<I, R> kata,
-                                 I input,
-                                 R expected,
-                                 BiPredicate<R, R> verifier) {
+    protected <I, R> void verifyBasicKata(BasicKata<I, R> kata,
+                                          I input,
+                                          R expected,
+                                          BiPredicate<R, R> verifier) {
         printWithHeader("Input", prettyFormat(input));
         printWithHeader("Expecting", prettyFormat(expected));
 
@@ -82,10 +82,10 @@ public class BasicKataTestBase {
      * @param <A>       Output type of the kata
      * @param <R>       Result type from the extractor
      */
-    protected <R, A> void verify(BasicNoArgKata<A> kata,
-                                 R expected,
-                                 Function<A, R> extractor,
-                                 BiPredicate<R, R> verifier) {
+    protected <R, A> void verifyNoArgKata(BasicNoArgKata<A> kata,
+                                          R expected,
+                                          Function<A, R> extractor,
+                                          BiPredicate<R, R> verifier) {
         printWithHeader("Expecting", prettyFormat(expected));
 
         A actual = kata.solve();
@@ -100,23 +100,45 @@ public class BasicKataTestBase {
     }
 
     /**
+     * Method for verifying the implemented {@link K}-class for this kata, where there are no actions.
+     * <p/>
+     * A method to handle logging and assertions.
+     * Use this instead of direct Assertions.assertEquals in your tests.
+     *
+     * @param kata           The implemented class
+     * @param extractor      The actual result using the extractor to calculate the result
+     * @param expectedResult The expected result from the extractor
+     * @param verifier       The verifier used for comparing
+     * @param <K>            The Kata-class
+     * @param <R>            Result type from the extractor
+     */
+    protected <K, R> void verifyClass(K kata,
+                                      Function<K, R> extractor,
+                                      R expectedResult,
+                                      BiPredicate<R, R> verifier) {
+
+        verifyClass(kata, k -> { }, extractor, expectedResult, verifier);
+    }
+
+    /**
      * Method for verifying the implemented {@link K}-class for this kata.
      * <p/>
      * A method to handle logging and assertions.
      * Use this instead of direct Assertions.assertEquals in your tests.
      *
-     * @param kata      The implemented class
-     * @param action    The actions to perform on the kata that is implemented
-     * @param extractor The actual result using the extractor to calculate the result
-     * @param verifier  The verifier used for comparing
-     * @param <K>       The Kata-class
-     * @param <R>       Result type from the extractor
+     * @param kata           The implemented class
+     * @param action         The actions to perform on the kata that is implemented
+     * @param extractor      The actual result using the extractor to calculate the result
+     * @param expectedResult The expected result from the extractor
+     * @param verifier       The verifier used for comparing
+     * @param <K>            The Kata-class
+     * @param <R>            Result type from the extractor
      */
-    protected <K, R> void verify(K kata,
-                                 Consumer<K> action,
-                                 Function<K, R> extractor,
-                                 R expectedResult,
-                                 BiPredicate<R, R> verifier) {
+    protected <K, R> void verifyClass(K kata,
+                                      Consumer<K> action,
+                                      Function<K, R> extractor,
+                                      R expectedResult,
+                                      BiPredicate<R, R> verifier) {
 
         printWithHeader("Expecting", prettyFormat(expectedResult));
 
@@ -125,6 +147,21 @@ public class BasicKataTestBase {
         R actualResult = extractor.apply(kata);
 
         doVerify(expectedResult, verifier, actualResult);
+    }
+
+    /**
+     * {@link Throwable} verification method, always verifies same exception class
+     * <p/>
+     * A method to handle logging and assertions.
+     * Use this instead of direct Assertions.assertEquals in your tests.
+     *
+     * @param executableAction  The action to be called to trigger an exception
+     * @param expectedException The expected exception to be thrown
+     */
+
+    protected <A extends Throwable, E extends Throwable> void verifyException(Runnable executableAction,
+                                                                              E expectedException) {
+        verifyException(executableAction, expectedException, verifySameExceptionClass);
     }
 
     /**
@@ -140,9 +177,9 @@ public class BasicKataTestBase {
      * @param <E>               Type of the expected exception
      */
 
-    protected <A extends Throwable, E extends Throwable> void verify(Runnable executableAction,
-                                                                     E expectedException,
-                                                                     BiPredicate<E, A> verifier) {
+    protected <A extends Throwable, E extends Throwable> void verifyException(Runnable executableAction,
+                                                                              E expectedException,
+                                                                              BiPredicate<E, A> verifier) {
 
         printWithHeader("Expecting", prettyFormat(expectedException));
 

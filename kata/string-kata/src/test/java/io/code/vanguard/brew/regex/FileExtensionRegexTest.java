@@ -19,7 +19,7 @@ public class FileExtensionRegexTest extends BasicKataTestBase {
             "E.g.: 'document.txt' returns '.txt'")
     @Order(1)
     void testStandardExtensionAtEnd() {
-        verify(new FileExtensionRegexKata(),
+        verifyNoArgKata(new FileExtensionRegexKata(),
                 ".pdf",
                 regex -> regexGroupsAsString.apply(regex, "/top_secret/ufo_report.pdf"),
                 Objects::equals);
@@ -30,7 +30,7 @@ public class FileExtensionRegexTest extends BasicKataTestBase {
             "E.g.: 'Run app.exe now' returns ''")
     @Order(2)
     void testExtensionInMiddle() {
-        verify(new FileExtensionRegexKata(),
+        verifyNoArgKata(new FileExtensionRegexKata(),
                 "",
                 regex -> regexGroupsAsString.apply(regex, "Execute order_66.bat immediately."),
                 Objects::equals);
@@ -41,7 +41,7 @@ public class FileExtensionRegexTest extends BasicKataTestBase {
             "E.g.: 'photo.jpeg' returns ''")
     @Order(3)
     void testExtensionTooLong() {
-        verify(new FileExtensionRegexKata(),
+        verifyNoArgKata(new FileExtensionRegexKata(),
                 "",
                 regex -> regexGroupsAsString.apply(regex, "vacation_photos.jpeg"),
                 Objects::equals);
@@ -52,7 +52,7 @@ public class FileExtensionRegexTest extends BasicKataTestBase {
             "E.g.: 'script.js' returns ''")
     @Order(4)
     void testExtensionTooShort() {
-        verify(new FileExtensionRegexKata(),
+        verifyNoArgKata(new FileExtensionRegexKata(),
                 "",
                 regex -> regexGroupsAsString.apply(regex, "virus_payload.sh"),
                 Objects::equals);
@@ -63,7 +63,7 @@ public class FileExtensionRegexTest extends BasicKataTestBase {
             "E.g.: 'archive.tar.zip' returns '.zip'")
     @Order(5)
     void testMultipleDots() {
-        verify(new FileExtensionRegexKata(),
+        verifyNoArgKata(new FileExtensionRegexKata(),
                 ".zip",
                 regex -> regexGroupsAsString.apply(regex, "jurassic_park_source_code.tar.zip"),
                 Objects::equals);

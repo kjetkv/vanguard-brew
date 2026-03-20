@@ -18,7 +18,7 @@ public class TimesheetRounderTest extends BasicKataTestBase {
             "E.g.: '08:15' returns '08:15'")
     @Order(1)
     void testExactQuarterHour() {
-        verify(new TimesheetRounderKata(),
+        verifyBasicKata(new TimesheetRounderKata(),
                 LocalTime.of(9, 30, 45),
                 LocalTime.of(9, 30),
                 Objects::equals);
@@ -29,7 +29,7 @@ public class TimesheetRounderTest extends BasicKataTestBase {
             "E.g.: '08:07' returns '08:00'")
     @Order(2)
     void testRoundDown() {
-        verify(new TimesheetRounderKata(),
+        verifyBasicKata(new TimesheetRounderKata(),
                 LocalTime.of(13, 6),
                 LocalTime.of(13, 0),
                 Objects::equals);
@@ -40,7 +40,7 @@ public class TimesheetRounderTest extends BasicKataTestBase {
             "E.g.: '08:08' returns '08:15'")
     @Order(3)
     void testRoundUp() {
-        verify(new TimesheetRounderKata(),
+        verifyBasicKata(new TimesheetRounderKata(),
                 LocalTime.of(14, 38),
                 LocalTime.of(14, 45),
                 Objects::equals);
@@ -51,7 +51,7 @@ public class TimesheetRounderTest extends BasicKataTestBase {
             "E.g.: '08:53' returns '09:00'")
     @Order(4)
     void testHourRollover() {
-        verify(new TimesheetRounderKata(),
+        verifyBasicKata(new TimesheetRounderKata(),
                 LocalTime.of(16, 55),
                 LocalTime.of(17, 0),
                 Objects::equals);
@@ -62,7 +62,7 @@ public class TimesheetRounderTest extends BasicKataTestBase {
             "E.g.: '23:56' returns '00:00'")
     @Order(5)
     void testMidnightRollover() {
-        verify(new TimesheetRounderKata(),
+        verifyBasicKata(new TimesheetRounderKata(),
                 LocalTime.of(23, 53),
                 LocalTime.of(0, 0),
                 Objects::equals);

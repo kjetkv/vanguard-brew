@@ -17,7 +17,7 @@ public class NumberExtractorTest extends BasicKataTestBase {
             "E.g.: 'Buy 2 apples and 3 pears' returns 5")
     @Order(1)
     void testMultipleSeparateNumbers() {
-        verify(new NumberExtractorKata(),
+        verifyBasicKata(new NumberExtractorKata(),
                 "I have 3 dragons and 2 swords.",
                 5,
                 Objects::equals);
@@ -28,7 +28,7 @@ public class NumberExtractorTest extends BasicKataTestBase {
             "E.g.: 'Score 100 points and get 50 coins' returns 150")
     @Order(2)
     void testMultiDigitNumbers() {
-        verify(new NumberExtractorKata(),
+        verifyBasicKata(new NumberExtractorKata(),
                 "Level 99 Boss has 5000 HP!",
                 5099,
                 Objects::equals);
@@ -39,7 +39,7 @@ public class NumberExtractorTest extends BasicKataTestBase {
             "E.g.: 'Just letters here' returns 0")
     @Order(3)
     void testNoNumbers() {
-        verify(new NumberExtractorKata(),
+        verifyBasicKata(new NumberExtractorKata(),
                 "There is no spoon.",
                 0,
                 Objects::equals);
@@ -50,7 +50,7 @@ public class NumberExtractorTest extends BasicKataTestBase {
             "E.g.: 'A1B2C3' returns 6")
     @Order(4)
     void testSquishedNumbers() {
-        verify(new NumberExtractorKata(),
+        verifyBasicKata(new NumberExtractorKata(),
                 "R2D2 meets C3PO",
                 7,
                 Objects::equals);
@@ -61,7 +61,7 @@ public class NumberExtractorTest extends BasicKataTestBase {
             "E.g.: '123' returns 123")
     @Order(5)
     void testOnlyNumbers() {
-        verify(new NumberExtractorKata(),
+        verifyBasicKata(new NumberExtractorKata(),
                 "42",
                 42,
                 Objects::equals);

@@ -21,7 +21,7 @@ public class DstPhantomTest extends BasicKataTestBase {
             "E.g.: 10:00 + 24h = 10:00 next day")
     @Order(1)
     void testStandard24HourAddition() {
-        verify(new DstPhantomKata(),
+        verifyBasicKata(new DstPhantomKata(),
                 new PhantomRequest(
                         ZonedDateTime.of(2026, 6, 15, 12, 0, 0, 0, ZoneId.of("America/New_York")),
                         24
@@ -35,7 +35,7 @@ public class DstPhantomTest extends BasicKataTestBase {
             "E.g.: 10:00 + 24h = 09:00 next day because 25 hours exist in that calendar day")
     @Order(2)
     void testFallBackBoundary() {
-        verify(new DstPhantomKata(),
+        verifyBasicKata(new DstPhantomKata(),
                 new PhantomRequest(
                         ZonedDateTime.of(2026, 10, 31, 14, 0, 0, 0, ZoneId.of("America/New_York")),
                         24
@@ -49,7 +49,7 @@ public class DstPhantomTest extends BasicKataTestBase {
             "E.g.: 10:00 + 24h = 11:00 next day because only 23 hours exist in that calendar day")
     @Order(3)
     void testSpringForwardBoundary() {
-        verify(new DstPhantomKata(),
+        verifyBasicKata(new DstPhantomKata(),
                 new PhantomRequest(
                         ZonedDateTime.of(2026, 3, 7, 8, 30, 0, 0, ZoneId.of("America/New_York")),
                         24
@@ -63,7 +63,7 @@ public class DstPhantomTest extends BasicKataTestBase {
             "E.g.: 12:00 + 24h = 11:00 next day on the last Sunday of October")
     @Order(4)
     void testEuropeanDstBoundary() {
-        verify(new DstPhantomKata(),
+        verifyBasicKata(new DstPhantomKata(),
                 new PhantomRequest(
                         ZonedDateTime.of(2026, 10, 24, 15, 0, 0, 0, ZoneId.of("Europe/Oslo")),
                         24
@@ -77,7 +77,7 @@ public class DstPhantomTest extends BasicKataTestBase {
             "E.g.: 10:00 + 48h crossing a fall back boundary returns 09:00 two days later")
     @Order(5)
     void testMultipleDaysAcrossBoundary() {
-        verify(new DstPhantomKata(),
+        verifyBasicKata(new DstPhantomKata(),
                 new PhantomRequest(
                         ZonedDateTime.of(2026, 10, 30, 20, 0, 0, 0, ZoneId.of("America/Chicago")),
                         48

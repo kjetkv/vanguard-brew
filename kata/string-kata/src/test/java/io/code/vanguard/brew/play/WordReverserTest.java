@@ -17,7 +17,7 @@ public class WordReverserTest extends BasicKataTestBase {
             "E.g.: 'the quick brown fox' returns 'fox brown quick the'")
     @Order(1)
     void testStandardSentence() {
-        verify(new WordReverserKata(),
+        verifyBasicKata(new WordReverserKata(),
                 "May the Force be with you",
                 "you with be Force the May",
                 Objects::equals);
@@ -28,7 +28,7 @@ public class WordReverserTest extends BasicKataTestBase {
             "E.g.: 'hello world!' returns 'world! hello'")
     @Order(2)
     void testSentenceWithPunctuation() {
-        verify(new WordReverserKata(),
+        verifyBasicKata(new WordReverserKata(),
                 "Roads? Where we're going, we don't need roads.",
                 "roads. need don't we going, we're Where Roads?",
                 Objects::equals);
@@ -39,7 +39,7 @@ public class WordReverserTest extends BasicKataTestBase {
             "E.g.: 'java' returns 'java'")
     @Order(3)
     void testSingleWord() {
-        verify(new WordReverserKata(),
+        verifyBasicKata(new WordReverserKata(),
                 "Supercalifragilisticexpialidocious",
                 "Supercalifragilisticexpialidocious",
                 Objects::equals);
@@ -50,7 +50,7 @@ public class WordReverserTest extends BasicKataTestBase {
             "E.g.: 'ready player 1' returns '1 player ready'")
     @Order(4)
     void testNumbersAndSymbols() {
-        verify(new WordReverserKata(),
+        verifyBasicKata(new WordReverserKata(),
                 "It's over 9000 !!!",
                 "!!! 9000 over It's",
                 Objects::equals);

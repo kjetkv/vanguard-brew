@@ -18,7 +18,7 @@ public class SeparatorSplitTest extends BasicKataTestBase {
                     "E.g.: 'one two' returns ['one', 'two']")
     @Order(1)
     void testSplitStringWithSpace() {
-        verify(new StringSplitKata(),
+        verifyBasicKata(new StringSplitKata(),
                 "public static void",
                 new String[]{"public", "static", "void"},
                 Arrays::equals);
@@ -30,7 +30,7 @@ public class SeparatorSplitTest extends BasicKataTestBase {
                     "E.g.: 'one;two' returns ['one', 'two']")
     @Order(2)
     void testSplitStringWithSemicolon() {
-        verify(new StringSplitKata(),
+        verifyBasicKata(new StringSplitKata(),
                 "public;static;void",
                 new String[]{"public", "static", "void"},
                 Arrays::equals);
@@ -42,7 +42,7 @@ public class SeparatorSplitTest extends BasicKataTestBase {
                     "E.g.: 'one two;full' returns ['one', 'two', 'full']")
     @Order(3)
     void testSplitStringWithSemicolonOrBlank() {
-        verify(new StringSplitKata(),
+        verifyBasicKata(new StringSplitKata(),
                 "public static;void main;interface boat @ car",
                 new String[]{"public", "static", "void", "main", "interface", "boat", "@", "car"},
                 Arrays::equals);

@@ -17,7 +17,7 @@ public class UniqueLettersTest extends BasicKataTestBase {
             "E.g.: 'Hello World' returns {'h', 'e', 'l', 'o', 'w', 'r', 'd'}")
     @Order(1)
     void testStandardSentence() {
-        verify(new UniqueLettersKata(),
+        verifyBasicKata(new UniqueLettersKata(),
                 "Hello World",
                 Set.of('h', 'e', 'l', 'o', 'w', 'r', 'd'),
                 Set::equals);
@@ -28,7 +28,7 @@ public class UniqueLettersTest extends BasicKataTestBase {
             "E.g.: '123 Java!!! 456' returns {'j', 'a', 'v'}")
     @Order(2)
     void testChaoticString() {
-        verify(new UniqueLettersKata(),
+        verifyBasicKata(new UniqueLettersKata(),
                 "123 Java!!! 456 \t\n @Code",
                 Set.of('j', 'a', 'v', 'c', 'o', 'd', 'e'),
                 Set::equals);
@@ -45,7 +45,7 @@ public class UniqueLettersTest extends BasicKataTestBase {
             allLetters.add(c);
         }
 
-        verify(new UniqueLettersKata(),
+        verifyBasicKata(new UniqueLettersKata(),
                 "The quick brown fox jumps over the lazy dog",
                 allLetters,
                 Set::equals);
@@ -56,7 +56,7 @@ public class UniqueLettersTest extends BasicKataTestBase {
             "E.g.: '12345 !?>< *&^%' returns {}")
     @Order(4)
     void testNoLettersAtAll() {
-        verify(new UniqueLettersKata(),
+        verifyBasicKata(new UniqueLettersKata(),
                 "12345 !?>< *&^%",
                 Set.of(),
                 Set::equals);

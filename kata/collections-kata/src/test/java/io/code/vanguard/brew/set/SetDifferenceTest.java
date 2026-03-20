@@ -18,7 +18,7 @@ public class SetDifferenceTest extends BasicKataTestBase {
             "E.g.: [[1, 2, 3], [2, 3, 4]] returns {1}")
     @Order(1)
     void testTwoListDifference() {
-        verify(new SetDifferenceKata(),
+        verifyBasicKata(new SetDifferenceKata(),
                 List.of(List.of(1, 2, 3), List.of(2, 3, 4)),
                 Set.of(1),
                 Set::equals);
@@ -29,7 +29,7 @@ public class SetDifferenceTest extends BasicKataTestBase {
             "E.g.: [[10, 20, 30, 40], [20], [40, 50]] returns {10, 30}")
     @Order(2)
     void testThreeListDifference() {
-        verify(new SetDifferenceKata(),
+        verifyBasicKata(new SetDifferenceKata(),
                 List.of(List.of(10, 20, 30, 40), List.of(20), List.of(40, 50)),
                 Set.of(10, 30),
                 Set::equals);
@@ -40,7 +40,7 @@ public class SetDifferenceTest extends BasicKataTestBase {
             "E.g.: [[1, 2], [1], [2]] returns {}")
     @Order(3)
     void testCompleteAnnihilation() {
-        verify(new SetDifferenceKata(),
+        verifyBasicKata(new SetDifferenceKata(),
                 List.of(List.of(1, 2), List.of(1), List.of(2)),
                 Set.of(),
                 Set::equals);
@@ -51,7 +51,7 @@ public class SetDifferenceTest extends BasicKataTestBase {
             "E.g.: [[1, 2], [3, 4], [5, 6]] returns {1, 2}")
     @Order(4)
     void testNoOverlapUnchanged() {
-        verify(new SetDifferenceKata(),
+        verifyBasicKata(new SetDifferenceKata(),
                 List.of(List.of(1, 2), List.of(3, 4), List.of(5, 6)),
                 Set.of(1, 2),
                 Set::equals);
@@ -62,7 +62,7 @@ public class SetDifferenceTest extends BasicKataTestBase {
             "E.g.: [[], [1, 2, 3]] returns {}")
     @Order(5)
     void testFirstListEmpty() {
-        verify(new SetDifferenceKata(),
+        verifyBasicKata(new SetDifferenceKata(),
                 List.of(List.of(), List.of(1, 2, 3)),
                 Set.of(),
                 Set::equals);

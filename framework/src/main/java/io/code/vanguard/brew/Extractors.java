@@ -1,6 +1,8 @@
 package io.code.vanguard.brew;
 
+import java.util.Arrays;
 import java.util.function.BiFunction;
+import java.util.function.Function;
 import java.util.regex.MatchResult;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -26,5 +28,12 @@ public interface Extractors {
                     .results()
                     .map(MatchResult::group)
                     .collect(Collectors.joining(","));
-
+    /**
+     * Takes a class and finds the interfaces, and returns that with a prefix of "Parent-interface:".
+     */
+    Function<Class<?>, String> parentInterfaceForClass = (Class<?> clazz) ->
+            "Parent-interface: " +
+                    Arrays.stream(clazz.getInterfaces())
+                            .map(Class::getSimpleName)
+                            .collect(Collectors.joining(","));
 }

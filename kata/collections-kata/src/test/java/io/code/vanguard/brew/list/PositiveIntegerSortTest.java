@@ -17,7 +17,7 @@ public class PositiveIntegerSortTest extends BasicKataTestBase {
             "E.g.: [5, 2, 8] returns [2, 5, 8]")
     @Order(1)
     void testStandardPositiveIntegers() {
-        verify(new PositiveIntegerSortKata(),
+        verifyBasicKata(new PositiveIntegerSortKata(),
                 List.of(5, 2, 8, 1, 9),
                 List.of(1, 2, 5, 8, 9),
                 List::equals);
@@ -28,7 +28,7 @@ public class PositiveIntegerSortTest extends BasicKataTestBase {
             "E.g.: [0, 3, 0, 1] returns [1, 3]")
     @Order(2)
     void testListWithZeros() {
-        verify(new PositiveIntegerSortKata(),
+        verifyBasicKata(new PositiveIntegerSortKata(),
                 List.of(0, 5, 0, 1, 3, 0),
                 List.of(1, 3, 5),
                 List::equals);
@@ -39,7 +39,7 @@ public class PositiveIntegerSortTest extends BasicKataTestBase {
             "E.g.: [-5, 4, -1, 2] returns [2, 4]")
     @Order(3)
     void testListWithNegativeNumbers() {
-        verify(new PositiveIntegerSortKata(),
+        verifyBasicKata(new PositiveIntegerSortKata(),
                 List.of(-10, 7, -3, 2, -1, 5),
                 List.of(2, 5, 7),
                 List::equals);
@@ -50,7 +50,7 @@ public class PositiveIntegerSortTest extends BasicKataTestBase {
             "E.g.: [-2, 0, -5] returns []")
     @Order(4)
     void testListWithNoValidNumbers() {
-        verify(new PositiveIntegerSortKata(),
+        verifyBasicKata(new PositiveIntegerSortKata(),
                 List.of(-5, 0, -1, -99, 0),
                 List.of(),
                 List::equals);

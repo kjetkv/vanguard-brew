@@ -17,7 +17,7 @@ public class AgentValidatorTest extends BasicKataTestBase {
             "E.g.: 'AGENT-1234' returns true")
     @Order(1)
     void testValidAgentId() {
-        verify(new AgentValidatorKata(),
+        verifyBasicKata(new AgentValidatorKata(),
                 "AGENT-0007",
                 true,
                 Objects::equals);
@@ -28,7 +28,7 @@ public class AgentValidatorTest extends BasicKataTestBase {
             "E.g.: 'agent-9999' returns false")
     @Order(2)
     void testLowercaseRejection() {
-        verify(new AgentValidatorKata(),
+        verifyBasicKata(new AgentValidatorKata(),
                 "agent-1138",
                 false,
                 Objects::equals);
@@ -39,7 +39,7 @@ public class AgentValidatorTest extends BasicKataTestBase {
             "E.g.: 'AGENT-99' returns false")
     @Order(3)
     void testTooFewDigits() {
-        verify(new AgentValidatorKata(),
+        verifyBasicKata(new AgentValidatorKata(),
                 "AGENT-47",
                 false,
                 Objects::equals);
@@ -50,7 +50,7 @@ public class AgentValidatorTest extends BasicKataTestBase {
             "E.g.: 'AGENT-12A4' returns false")
     @Order(4)
     void testLettersInDigits() {
-        verify(new AgentValidatorKata(),
+        verifyBasicKata(new AgentValidatorKata(),
                 "AGENT-C3P0",
                 false,
                 Objects::equals);
@@ -61,7 +61,7 @@ public class AgentValidatorTest extends BasicKataTestBase {
             "E.g.: 'Hello AGENT-1234 !!' returns false")
     @Order(5)
     void testUnanchoredText() {
-        verify(new AgentValidatorKata(),
+        verifyBasicKata(new AgentValidatorKata(),
                 "Greetings AGENT-86, your mission is ready.",
                 false,
                 Objects::equals);

@@ -17,7 +17,7 @@ public class EllipsisTruncatorTest extends BasicKataTestBase {
             "E.g.: 'Hello World' (max 8) returns 'Hello...'")
     @Order(1)
     void testStandardTruncation() {
-        verify(new EllipsisTruncatorKata(),
+        verifyBasicKata(new EllipsisTruncatorKata(),
                 new EllipsisTruncatorKata.TruncateRequest("With great power comes great responsibility", 16),
                 "With great po...",
                 Objects::equals);
@@ -28,7 +28,7 @@ public class EllipsisTruncatorTest extends BasicKataTestBase {
             "E.g.: 'apple' (max 5) returns 'apple'")
     @Order(2)
     void testExactLength() {
-        verify(new EllipsisTruncatorKata(),
+        verifyBasicKata(new EllipsisTruncatorKata(),
                 new EllipsisTruncatorKata.TruncateRequest("Avengers", 8),
                 "Avengers",
                 Objects::equals);
@@ -39,7 +39,7 @@ public class EllipsisTruncatorTest extends BasicKataTestBase {
             "E.g.: 'cat' (max 10) returns 'cat'")
     @Order(3)
     void testShorterThanMaxLength() {
-        verify(new EllipsisTruncatorKata(),
+        verifyBasicKata(new EllipsisTruncatorKata(),
                 new EllipsisTruncatorKata.TruncateRequest("Thor", 15),
                 "Thor",
                 Objects::equals);
@@ -50,7 +50,7 @@ public class EllipsisTruncatorTest extends BasicKataTestBase {
             "E.g.: 'long word' (max 3) returns '...'")
     @Order(4)
     void testMaxLengthOfThree() {
-        verify(new EllipsisTruncatorKata(),
+        verifyBasicKata(new EllipsisTruncatorKata(),
                 new EllipsisTruncatorKata.TruncateRequest("Voldemort", 3),
                 "...",
                 Objects::equals);
@@ -61,7 +61,7 @@ public class EllipsisTruncatorTest extends BasicKataTestBase {
             "E.g.: 'huge' (max 2) returns '..'")
     @Order(5)
     void testExtremeEdgeCase() {
-        verify(new EllipsisTruncatorKata(),
+        verifyBasicKata(new EllipsisTruncatorKata(),
                 new EllipsisTruncatorKata.TruncateRequest("Bazinga!", 2),
                 "..",
                 Objects::equals);

@@ -18,7 +18,7 @@ public class SumOfNumbersTest extends BasicKataTestBase {
             "E.g.: [1, 2, 3] returns 6")
     @Order(1)
     void testSumPositiveNumbers() {
-        verify(new SumOfNumbersKata(),
+        verifyBasicKata(new SumOfNumbersKata(),
                 List.of(1, 2, 3),
                 6,
                 Objects::equals);
@@ -29,7 +29,7 @@ public class SumOfNumbersTest extends BasicKataTestBase {
             "E.g.: [5, -2, 3] returns 6")
     @Order(2)
     void testSumWithNegativeNumbers() {
-        verify(new SumOfNumbersKata(),
+        verifyBasicKata(new SumOfNumbersKata(),
                 List.of(5, -2, 3),
                 6,
                 Objects::equals);
@@ -40,7 +40,7 @@ public class SumOfNumbersTest extends BasicKataTestBase {
             "E.g.: [0, 0, 0] returns 0")
     @Order(3)
     void testSumOfZeros() {
-        verify(new SumOfNumbersKata(),
+        verifyBasicKata(new SumOfNumbersKata(),
                 List.of(0, 0, 0),
                 0,
                 Objects::equals);
@@ -51,7 +51,7 @@ public class SumOfNumbersTest extends BasicKataTestBase {
             "E.g.: [] returns 0")
     @Order(4)
     void testEmptyList() {
-        verify(new SumOfNumbersKata(),
+        verifyBasicKata(new SumOfNumbersKata(),
                 List.of(),
                 0,
                 Objects::equals);

@@ -18,7 +18,7 @@ public class WordFrequencyTest extends BasicKataTestBase {
             "E.g.: ['apple', 'banana', 'apple'] returns {'apple'=2, 'banana'=1}")
     @Order(1)
     void testStandardFrequencies() {
-        verify(new WordFrequencyKata(),
+        verifyBasicKata(new WordFrequencyKata(),
                 List.of("apple", "banana", "apple"),
                 Map.of("apple", 2, "banana", 1),
                 Map::equals);
@@ -29,7 +29,7 @@ public class WordFrequencyTest extends BasicKataTestBase {
             "E.g.: ['cat', 'dog', 'bird'] returns {'cat'=1, 'dog'=1, 'bird'=1}")
     @Order(2)
     void testAllUniqueWords() {
-        verify(new WordFrequencyKata(),
+        verifyBasicKata(new WordFrequencyKata(),
                 List.of("cat", "dog", "bird"),
                 Map.of("cat", 1, "dog", 1, "bird", 1),
                 Map::equals);
@@ -40,7 +40,7 @@ public class WordFrequencyTest extends BasicKataTestBase {
             "E.g.: ['java', 'java', 'java'] returns {'java'=3}")
     @Order(3)
     void testAllIdenticalWords() {
-        verify(new WordFrequencyKata(),
+        verifyBasicKata(new WordFrequencyKata(),
                 List.of("java", "java", "java", "java"),
                 Map.of("java", 4),
                 Map::equals);
@@ -52,7 +52,7 @@ public class WordFrequencyTest extends BasicKataTestBase {
     @Order(4)
     void testCaseSensitivity() {
         // This is a great teaching moment: Maps compare keys strictly using .equals() and .hashCode()
-        verify(new WordFrequencyKata(),
+        verifyBasicKata(new WordFrequencyKata(),
                 List.of("Apple", "apple", "APPLE", "apple"),
                 Map.of("Apple", 1, "apple", 2, "APPLE", 1),
                 Map::equals);
@@ -64,7 +64,7 @@ public class WordFrequencyTest extends BasicKataTestBase {
     @Order(5)
     void testNullsInList() {
         // We must use Arrays.asList() here because List.of() strictly forbids nulls
-        verify(new WordFrequencyKata(),
+        verifyBasicKata(new WordFrequencyKata(),
                 java.util.Arrays.asList("apple", null, "apple", null),
                 Map.of("apple", 2),
                 Map::equals);

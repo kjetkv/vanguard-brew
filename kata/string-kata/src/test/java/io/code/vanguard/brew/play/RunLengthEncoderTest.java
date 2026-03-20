@@ -17,7 +17,7 @@ public class RunLengthEncoderTest extends BasicKataTestBase {
             "E.g.: 'aaaabbc' returns 'a4b2c1'")
     @Order(1)
     void testStandardCompression() {
-        verify(new RunLengthEncoderKata(),
+        verifyBasicKata(new RunLengthEncoderKata(),
                 "Goooolluuumm",
                 "G1o4l2u3m2",
                 Objects::equals);
@@ -28,7 +28,7 @@ public class RunLengthEncoderTest extends BasicKataTestBase {
             "E.g.: 'abc' returns 'a1b1c1'")
     @Order(2)
     void testAllUniqueCharacters() {
-        verify(new RunLengthEncoderKata(),
+        verifyBasicKata(new RunLengthEncoderKata(),
                 "Bazinga",
                 "B1a1z1i1n1g1a1",
                 Objects::equals);
@@ -39,7 +39,7 @@ public class RunLengthEncoderTest extends BasicKataTestBase {
             "E.g.: 'abbbbbbbbc' returns 'a1b8c1'")
     @Order(3)
     void testLongCharacterRuns() {
-        verify(new RunLengthEncoderKata(),
+        verifyBasicKata(new RunLengthEncoderKata(),
                 "Khaleeeeesi",
                 "K1h1a1l1e5s1i1",
                 Objects::equals);
@@ -50,7 +50,7 @@ public class RunLengthEncoderTest extends BasicKataTestBase {
             "E.g.: 'aAaA' returns 'a1A1a1A1'")
     @Order(4)
     void testCaseSensitivity() {
-        verify(new RunLengthEncoderKata(),
+        verifyBasicKata(new RunLengthEncoderKata(),
                 "HaHaHa",
                 "H1a1H1a1H1a1",
                 Objects::equals);
@@ -61,7 +61,7 @@ public class RunLengthEncoderTest extends BasicKataTestBase {
             "E.g.: '!!!???' returns '!3?3'")
     @Order(5)
     void testSymbolsAndPunctuation() {
-        verify(new RunLengthEncoderKata(),
+        verifyBasicKata(new RunLengthEncoderKata(),
                 "PeWPeWPeW!!!",
                 "P1e1W1P1e1W1P1e1W1!3",
                 Objects::equals);

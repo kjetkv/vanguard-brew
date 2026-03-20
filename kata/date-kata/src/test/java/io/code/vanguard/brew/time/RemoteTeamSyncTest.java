@@ -20,7 +20,7 @@ public class RemoteTeamSyncTest extends BasicKataTestBase {
             "E.g.: 14:00 in UTC is 15:00 in Europe/Oslo")
     @Order(1)
     void testStandardWholeHourConversion() {
-        verify(new RemoteTeamSyncKata(),
+        verifyBasicKata(new RemoteTeamSyncKata(),
                 new SyncRequest(
                         LocalDateTime.of(2026, 1, 15, 14, 0),
                         "UTC",
@@ -35,7 +35,7 @@ public class RemoteTeamSyncTest extends BasicKataTestBase {
             "E.g.: 12:00 in UTC is 17:30 in Asia/Kolkata")
     @Order(2)
     void testFractionalTimezoneOffsets() {
-        verify(new RemoteTeamSyncKata(),
+        verifyBasicKata(new RemoteTeamSyncKata(),
                 new SyncRequest(
                         LocalDateTime.of(2026, 4, 10, 12, 0),
                         "UTC",
@@ -50,7 +50,7 @@ public class RemoteTeamSyncTest extends BasicKataTestBase {
             "E.g.: 09:00 on Tuesday in Tokyo is 14:00 on Monday in Honolulu")
     @Order(3)
     void testInternationalDateLine() {
-        verify(new RemoteTeamSyncKata(),
+        verifyBasicKata(new RemoteTeamSyncKata(),
                 new SyncRequest(
                         LocalDateTime.of(2026, 12, 8, 9, 0),
                         "Asia/Tokyo",
@@ -65,7 +65,7 @@ public class RemoteTeamSyncTest extends BasicKataTestBase {
             "E.g.: 22:00 in New York is 04:00 the next day in Paris")
     @Order(4)
     void testMidnightBoundaryForward() {
-        verify(new RemoteTeamSyncKata(),
+        verifyBasicKata(new RemoteTeamSyncKata(),
                 new SyncRequest(
                         LocalDateTime.of(2026, 7, 4, 22, 0),
                         "America/New_York",
@@ -80,7 +80,7 @@ public class RemoteTeamSyncTest extends BasicKataTestBase {
             "E.g.: 02:30 AM in NY on DST transition day does not exist; it shifts to 03:30 AM EDT, then converts to UTC")
     @Order(5)
     void testDstGapAdjustment() {
-        verify(new RemoteTeamSyncKata(),
+        verifyBasicKata(new RemoteTeamSyncKata(),
                 new SyncRequest(
                         LocalDateTime.of(2026, 3, 8, 2, 30),
                         "America/New_York",

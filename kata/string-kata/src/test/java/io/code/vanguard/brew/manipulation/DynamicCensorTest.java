@@ -17,7 +17,7 @@ public class DynamicCensorTest extends BasicKataTestBase {
             "E.g.: 'I hate bugs' (badWord: 'bugs') returns 'I hate ****'")
     @Order(1)
     void testStandardCensorship() {
-        verify(new DynamicCensorKata(),
+        verifyBasicKata(new DynamicCensorKata(),
                 new DynamicCensorKata.CensorRequest("Voldemort has returned!", "Voldemort"),
                 "********* has returned!",
                 Objects::equals);
@@ -28,7 +28,7 @@ public class DynamicCensorTest extends BasicKataTestBase {
             "E.g.: 'No no no!' (badWord: 'no') returns '** ** **!'")
     @Order(2)
     void testMultipleOccurrences() {
-        verify(new DynamicCensorKata(),
+        verifyBasicKata(new DynamicCensorKata(),
                 new DynamicCensorKata.CensorRequest("Daleks say exterminate, EXTERMINATE!", "exterminate"),
                 "Daleks say ***********, ***********!",
                 Objects::equals);
@@ -39,7 +39,7 @@ public class DynamicCensorTest extends BasicKataTestBase {
             "E.g.: 'BaD wOrD' (badWord: 'bad') returns '*** wOrD'")
     @Order(3)
     void testCaseInsensitivity() {
-        verify(new DynamicCensorKata(),
+        verifyBasicKata(new DynamicCensorKata(),
                 new DynamicCensorKata.CensorRequest("Do you bleed? You will BLEED.", "bleed"),
                 "Do you *****? You will *****.",
                 Objects::equals);
@@ -50,7 +50,7 @@ public class DynamicCensorTest extends BasicKataTestBase {
             "E.g.: 'Hello world' (badWord: 'bye') returns 'Hello world'")
     @Order(4)
     void testWordNotFound() {
-        verify(new DynamicCensorKata(),
+        verifyBasicKata(new DynamicCensorKata(),
                 new DynamicCensorKata.CensorRequest("These are not the droids you are looking for.", "Jedi"),
                 "These are not the droids you are looking for.",
                 Objects::equals);
@@ -61,7 +61,7 @@ public class DynamicCensorTest extends BasicKataTestBase {
             "E.g.: 'Error $100!' (badWord: '$100') returns 'Error ****!'")
     @Order(5)
     void testSpecialCharactersInBadWord() {
-        verify(new DynamicCensorKata(),
+        verifyBasicKata(new DynamicCensorKata(),
                 new DynamicCensorKata.CensorRequest("Wait a minute, Doc. Are you telling me you built a time machine?", "Doc."),
                 "Wait a minute, **** Are you telling me you built a time machine?",
                 Objects::equals);

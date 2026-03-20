@@ -18,7 +18,7 @@ public class FindMaximumValueTest extends BasicKataTestBase {
             "E.g.: [1, 9, 3] returns 9")
     @Order(1)
     void testMaxInMiddle() {
-        verify(new FindMaximumValueKata(),
+        verifyBasicKata(new FindMaximumValueKata(),
                 List.of(1, 9, 3, 5),
                 9,
                 Objects::equals);
@@ -29,7 +29,7 @@ public class FindMaximumValueTest extends BasicKataTestBase {
             "E.g.: [10, 2, 4] returns 10")
     @Order(2)
     void testMaxAtStart() {
-        verify(new FindMaximumValueKata(),
+        verifyBasicKata(new FindMaximumValueKata(),
                 List.of(10, 2, 4, 1),
                 10,
                 Objects::equals);
@@ -40,7 +40,7 @@ public class FindMaximumValueTest extends BasicKataTestBase {
             "E.g.: [2, 4, 8] returns 8")
     @Order(3)
     void testMaxAtEnd() {
-        verify(new FindMaximumValueKata(),
+        verifyBasicKata(new FindMaximumValueKata(),
                 List.of(2, 4, 1, 8),
                 8,
                 Objects::equals);
@@ -52,7 +52,7 @@ public class FindMaximumValueTest extends BasicKataTestBase {
     @Order(4)
     void testAllNegativeNumbers() {
         // This test will fail if the learner initialized `int max = 0;`
-        verify(new FindMaximumValueKata(),
+        verifyBasicKata(new FindMaximumValueKata(),
                 List.of(-5, -2, -10, -3),
                 -2,
                 Objects::equals);
@@ -63,7 +63,7 @@ public class FindMaximumValueTest extends BasicKataTestBase {
             "E.g.: [7] returns 7")
     @Order(5)
     void testSingleElement() {
-        verify(new FindMaximumValueKata(),
+        verifyBasicKata(new FindMaximumValueKata(),
                 List.of(7),
                 7,
                 Objects::equals);

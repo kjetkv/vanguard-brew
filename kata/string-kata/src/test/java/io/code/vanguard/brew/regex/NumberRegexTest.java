@@ -17,7 +17,7 @@ public class NumberRegexTest extends BasicKataTestBase {
             "E.g.: 'Buy 2 get 1 free' returns a regex that finds '2,1'")
     @Order(1)
     void testIsolatedNumbers() {
-        verify(new NumberRegexKata(),
+        verifyNoArgKata(new NumberRegexKata(),
                 "1,42",
                 regex -> regexGroupsAsString.apply(regex, "Ready Player 1, collect 42 coins."),
                 String::equals);
@@ -29,7 +29,7 @@ public class NumberRegexTest extends BasicKataTestBase {
     @Order(2)
     void testConsecutiveDigits() {
 
-        verify(new NumberRegexKata(),
+        verifyNoArgKata(new NumberRegexKata(),
                 "9001",
                 regex -> regexGroupsAsString.apply(regex, "His power level is over 9001!"),
                 String::equals);
@@ -40,7 +40,7 @@ public class NumberRegexTest extends BasicKataTestBase {
             "E.g.: 'A1B2' returns a regex that finds '1,2'")
     @Order(3)
     void testNumbersGluedToLetters() {
-        verify(new NumberRegexKata(),
+        verifyNoArgKata(new NumberRegexKata(),
                 "2,2,3,0",
                 regex -> regexGroupsAsString.apply(regex, "R2-D2 and C-3P0"),
                 String::equals);
@@ -51,7 +51,7 @@ public class NumberRegexTest extends BasicKataTestBase {
             "E.g.: 'Just words' returns a regex that finds ''")
     @Order(4)
     void testNoNumbers() {
-        verify(new NumberRegexKata(),
+        verifyNoArgKata(new NumberRegexKata(),
                 "",
                 regex -> regexGroupsAsString.apply(regex, "To infinity and beyond"),
                 String::equals);
@@ -62,7 +62,7 @@ public class NumberRegexTest extends BasicKataTestBase {
             "E.g.: '12345' returns a regex that finds '12345'")
     @Order(5)
     void testOnlyNumbers() {
-        verify(new NumberRegexKata(),
+        verifyNoArgKata(new NumberRegexKata(),
                 "8675309",
                 regex -> regexGroupsAsString.apply(regex, "8675309"),
                 String::equals);

@@ -18,7 +18,7 @@ public class TimeTravelersParserTest extends BasicKataTestBase {
             "E.g.: '15-Aug-1995' returns 1995-08-15")
     @Order(1)
     void testStandardDate() {
-        verify(new TimeTravelersParserKata(),
+        verifyBasicKata(new TimeTravelersParserKata(),
                 "26-Oct-1985",
                 LocalDate.of(1985, 10, 26),
                 Objects::equals);
@@ -29,7 +29,7 @@ public class TimeTravelersParserTest extends BasicKataTestBase {
             "E.g.: '05-Nov-1955' returns 1955-11-05")
     @Order(2)
     void testZeroPaddedDay() {
-        verify(new TimeTravelersParserKata(),
+        verifyBasicKata(new TimeTravelersParserKata(),
                 "04-Jul-1776",
                 LocalDate.of(1776, 7, 4),
                 Objects::equals);
@@ -40,7 +40,7 @@ public class TimeTravelersParserTest extends BasicKataTestBase {
             "E.g.: '29-Feb-2024' returns 2024-02-29")
     @Order(3)
     void testLeapYearDate() {
-        verify(new TimeTravelersParserKata(),
+        verifyBasicKata(new TimeTravelersParserKata(),
                 "29-Feb-2020",
                 LocalDate.of(2020, 2, 29),
                 Objects::equals);
@@ -51,7 +51,7 @@ public class TimeTravelersParserTest extends BasicKataTestBase {
             "E.g.: '31-Dec-1999' returns 1999-12-31")
     @Order(4)
     void testEndOfYearDate() {
-        verify(new TimeTravelersParserKata(),
+        verifyBasicKata(new TimeTravelersParserKata(),
                 "31-Dec-1999",
                 LocalDate.of(1999, 12, 31),
                 Objects::equals);
@@ -62,7 +62,7 @@ public class TimeTravelersParserTest extends BasicKataTestBase {
             "E.g.: '01-Jan-3000' returns 3000-01-01")
     @Order(5)
     void testDeepFutureDate() {
-        verify(new TimeTravelersParserKata(),
+        verifyBasicKata(new TimeTravelersParserKata(),
                 "02-Feb-2222",
                 LocalDate.of(2222, 2, 2),
                 Objects::equals);

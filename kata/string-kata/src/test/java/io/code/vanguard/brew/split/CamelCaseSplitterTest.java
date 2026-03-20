@@ -17,7 +17,7 @@ public class CamelCaseSplitterTest extends BasicKataTestBase {
             "E.g.: 'myVariableName' returns ['my', 'Variable', 'Name']")
     @Order(1)
     void testStandardCamelCase() {
-        verify(new CamelCaseSplitterKata(),
+        verifyBasicKata(new CamelCaseSplitterKata(),
                 "teenageMutantNinjaTurtles",
                 List.of("teenage", "Mutant", "Ninja", "Turtles"),
                 List::equals);
@@ -28,7 +28,7 @@ public class CamelCaseSplitterTest extends BasicKataTestBase {
             "E.g.: 'FirstName' returns ['First', 'Name']")
     @Order(2)
     void testPascalCase() {
-        verify(new CamelCaseSplitterKata(),
+        verifyBasicKata(new CamelCaseSplitterKata(),
                 "TheLordOfTheRings",
                 List.of("The", "Lord", "Of", "The", "Rings"),
                 List::equals);
@@ -39,7 +39,7 @@ public class CamelCaseSplitterTest extends BasicKataTestBase {
             "E.g.: 'oneTwoThreeFour' returns ['one', 'Two', 'Three', 'Four']")
     @Order(3)
     void testLongCamelCase() {
-        verify(new CamelCaseSplitterKata(),
+        verifyBasicKata(new CamelCaseSplitterKata(),
                 "harryPotterAndTheSorcerersStoneThatFellOfTheWagon",
                 List.of("harry", "Potter", "And", "The", "Sorcerers", "Stone", "That", "Fell", "Of", "The", "Wagon"),
                 List::equals);
@@ -50,7 +50,7 @@ public class CamelCaseSplitterTest extends BasicKataTestBase {
             "E.g.: 'hello' returns ['hello']")
     @Order(4)
     void testSingleLowercaseWord() {
-        verify(new CamelCaseSplitterKata(),
+        verifyBasicKata(new CamelCaseSplitterKata(),
                 "gandalf",
                 List.of("gandalf"),
                 List::equals);
@@ -61,7 +61,7 @@ public class CamelCaseSplitterTest extends BasicKataTestBase {
             "E.g.: '' returns []")
     @Order(5)
     void testEmptyString() {
-        verify(new CamelCaseSplitterKata(),
+        verifyBasicKata(new CamelCaseSplitterKata(),
                 "",
                 List.of(),
                 List::equals);

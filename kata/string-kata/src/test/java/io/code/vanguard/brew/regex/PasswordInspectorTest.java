@@ -17,7 +17,7 @@ public class PasswordInspectorTest extends BasicKataTestBase {
             "E.g.: 'Valid123!' returns true")
     @Order(1)
     void testPerfectPassword() {
-        verify(new PasswordInspectorKata(),
+        verifyBasicKata(new PasswordInspectorKata(),
                 "Triforce!1986",
                 true,
                 Objects::equals);
@@ -28,7 +28,7 @@ public class PasswordInspectorTest extends BasicKataTestBase {
             "E.g.: 'A1!bcd' returns false")
     @Order(2)
     void testTooShort() {
-        verify(new PasswordInspectorKata(),
+        verifyBasicKata(new PasswordInspectorKata(),
                 "P@ss1",
                 false,
                 Objects::equals);
@@ -39,7 +39,7 @@ public class PasswordInspectorTest extends BasicKataTestBase {
             "E.g.: 'lowercase1!' returns false")
     @Order(3)
     void testNoUppercase() {
-        verify(new PasswordInspectorKata(),
+        verifyBasicKata(new PasswordInspectorKata(),
                 "mischief_managed_99",
                 false,
                 Objects::equals);
@@ -50,7 +50,7 @@ public class PasswordInspectorTest extends BasicKataTestBase {
             "E.g.: 'NoNumbersHere!' returns false")
     @Order(4)
     void testNoNumber() {
-        verify(new PasswordInspectorKata(),
+        verifyBasicKata(new PasswordInspectorKata(),
                 "WinterIsComing!!!",
                 false,
                 Objects::equals);
@@ -61,7 +61,7 @@ public class PasswordInspectorTest extends BasicKataTestBase {
             "E.g.: 'NoSpecialChars123' returns false")
     @Order(5)
     void testNoSpecialCharacter() {
-        verify(new PasswordInspectorKata(),
+        verifyBasicKata(new PasswordInspectorKata(),
                 "GottaCatchEmAll151",
                 false,
                 Objects::equals);

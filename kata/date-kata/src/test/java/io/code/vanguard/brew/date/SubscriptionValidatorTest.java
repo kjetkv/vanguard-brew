@@ -18,7 +18,7 @@ public class SubscriptionValidatorTest extends BasicKataTestBase {
             "E.g.: Start '2020-01-01', duration 6 months, check '2020-03-01' returns true")
     @Order(1)
     void testActiveSubscription() {
-        verify(new SubscriptionValidatorKata(),
+        verifyBasicKata(new SubscriptionValidatorKata(),
                 new SubscriptionValidatorKata.SubscriptionRequest(
                         LocalDate.of(2004, 11, 23),
                         6,
@@ -33,7 +33,7 @@ public class SubscriptionValidatorTest extends BasicKataTestBase {
             "E.g.: Start '2020-01-01', duration 1 month, check '2020-05-01' returns false")
     @Order(2)
     void testExpiredSubscription() {
-        verify(new SubscriptionValidatorKata(),
+        verifyBasicKata(new SubscriptionValidatorKata(),
                 new SubscriptionValidatorKata.SubscriptionRequest(
                         LocalDate.of(1997, 8, 29),
                         12,
@@ -48,7 +48,7 @@ public class SubscriptionValidatorTest extends BasicKataTestBase {
             "E.g.: Start '2020-01-01', duration 1 month, check '2020-02-01' returns false")
     @Order(3)
     void testExactExpirationBoundary() {
-        verify(new SubscriptionValidatorKata(),
+        verifyBasicKata(new SubscriptionValidatorKata(),
                 new SubscriptionValidatorKata.SubscriptionRequest(
                         LocalDate.of(2077, 12, 10),
                         24,
@@ -63,7 +63,7 @@ public class SubscriptionValidatorTest extends BasicKataTestBase {
             "E.g.: Start '2024-01-31', duration 1 month, check '2024-03-01' returns false")
     @Order(4)
     void testMonthEndEdgeCase() {
-        verify(new SubscriptionValidatorKata(),
+        verifyBasicKata(new SubscriptionValidatorKata(),
                 new SubscriptionValidatorKata.SubscriptionRequest(
                         LocalDate.of(2024, 1, 31),
                         1,
@@ -78,7 +78,7 @@ public class SubscriptionValidatorTest extends BasicKataTestBase {
             "E.g.: Start '2020-01-01', duration 1 month, check '2020-01-01' returns true")
     @Order(5)
     void testCheckOnStartDate() {
-        verify(new SubscriptionValidatorKata(),
+        verifyBasicKata(new SubscriptionValidatorKata(),
                 new SubscriptionValidatorKata.SubscriptionRequest(
                         LocalDate.of(2026, 2, 26),
                         1,

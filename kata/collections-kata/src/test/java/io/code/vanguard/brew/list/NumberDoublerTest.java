@@ -17,7 +17,7 @@ public class NumberDoublerTest extends BasicKataTestBase {
             "E.g.: [1, 2, 3] returns [2, 4, 6]")
     @Order(1)
     void testDoublePositiveNumbers() {
-        verify(new NumberDoublerKata(),
+        verifyBasicKata(new NumberDoublerKata(),
                 List.of(1, 2, 3),
                 List.of(2, 4, 6),
                 List::equals);
@@ -28,7 +28,7 @@ public class NumberDoublerTest extends BasicKataTestBase {
             "E.g.: [-1, -5] returns [-2, -10]")
     @Order(2)
     void testDoubleNegativeNumbers() {
-        verify(new NumberDoublerKata(),
+        verifyBasicKata(new NumberDoublerKata(),
                 List.of(-1, -5),
                 List.of(-2, -10),
                 List::equals);
@@ -39,7 +39,7 @@ public class NumberDoublerTest extends BasicKataTestBase {
             "E.g.: [0, 0] returns [0, 0]")
     @Order(3)
     void testDoubleZeros() {
-        verify(new NumberDoublerKata(),
+        verifyBasicKata(new NumberDoublerKata(),
                 List.of(0, 0),
                 List.of(0, 0),
                 List::equals);
@@ -50,7 +50,7 @@ public class NumberDoublerTest extends BasicKataTestBase {
             "E.g.: [10, -3, 0] returns [20, -6, 0]")
     @Order(4)
     void testMixedNumbers() {
-        verify(new NumberDoublerKata(),
+        verifyBasicKata(new NumberDoublerKata(),
                 List.of(10, -3, 0, 5),
                 List.of(20, -6, 0, 10),
                 List::equals);
@@ -61,7 +61,7 @@ public class NumberDoublerTest extends BasicKataTestBase {
             "E.g.: [] returns []")
     @Order(5)
     void testEmptyList() {
-        verify(new NumberDoublerKata(),
+        verifyBasicKata(new NumberDoublerKata(),
                 List.of(),
                 List.of(),
                 List::equals);

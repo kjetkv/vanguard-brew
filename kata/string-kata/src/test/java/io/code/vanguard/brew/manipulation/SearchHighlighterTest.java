@@ -17,7 +17,7 @@ public class SearchHighlighterTest extends BasicKataTestBase {
             "E.g.: 'Look here' (term: 'here') returns 'Look [MARK]here[/MARK]'")
     @Order(1)
     void testStandardHighlight() {
-        verify(new SearchHighlighterKata(),
+        verifyBasicKata(new SearchHighlighterKata(),
                 new SearchHighlighterKata.HighlightRequest("The cake is a lie.", "cake"),
                 "The [MARK]cake[/MARK] is a lie.",
                 Objects::equals);
@@ -28,7 +28,7 @@ public class SearchHighlighterTest extends BasicKataTestBase {
             "E.g.: 'A cat and another cat' (term: 'cat') returns 'A [MARK]cat[/MARK] and another [MARK]cat[/MARK]'")
     @Order(2)
     void testMultipleHighlights() {
-        verify(new SearchHighlighterKata(),
+        verifyBasicKata(new SearchHighlighterKata(),
                 new SearchHighlighterKata.HighlightRequest("I am Groot. We are Groot.", "Groot"),
                 "I am [MARK]Groot[/MARK]. We are [MARK]Groot[/MARK].",
                 Objects::equals);
@@ -39,7 +39,7 @@ public class SearchHighlighterTest extends BasicKataTestBase {
             "E.g.: 'BIG big' (term: 'big') returns '[MARK]BIG[/MARK] [MARK]big[/MARK]'")
     @Order(3)
     void testPreservesOriginalCasing() {
-        verify(new SearchHighlighterKata(),
+        verifyBasicKata(new SearchHighlighterKata(),
                 new SearchHighlighterKata.HighlightRequest("Bears. Beets. Battlestar Galactica.", "bear"),
                 "[MARK]Bear[/MARK]s. Beets. Battlestar Galactica.",
                 Objects::equals);
@@ -50,7 +50,7 @@ public class SearchHighlighterTest extends BasicKataTestBase {
             "E.g.: 'Understand' (term: 'under') returns '[MARK]Under[/MARK]stand'")
     @Order(4)
     void testPartialWordHighlight() {
-        verify(new SearchHighlighterKata(),
+        verifyBasicKata(new SearchHighlighterKata(),
                 new SearchHighlighterKata.HighlightRequest("Wakanda Forever!", "kan"),
                 "Wa[MARK]kan[/MARK]da Forever!",
                 Objects::equals);
@@ -61,7 +61,7 @@ public class SearchHighlighterTest extends BasicKataTestBase {
             "E.g.: 'Nothing to see' (term: 'hidden') returns 'Nothing to see'")
     @Order(5)
     void testTermNotFound() {
-        verify(new SearchHighlighterKata(),
+        verifyBasicKata(new SearchHighlighterKata(),
                 new SearchHighlighterKata.HighlightRequest("Yer a wizard, Harry.", "Muggle"),
                 "Yer a wizard, Harry.",
                 Objects::equals);

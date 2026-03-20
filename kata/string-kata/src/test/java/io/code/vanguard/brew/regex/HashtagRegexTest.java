@@ -19,7 +19,7 @@ public class HashtagRegexTest extends BasicKataTestBase {
             "E.g.: 'Loving this #kata' returns '#kata'")
     @Order(1)
     void testSingleHashtag() {
-        verify(new HashtagRegexKata(),
+        verifyNoArgKata(new HashtagRegexKata(),
                 "#success",
                 regex -> regexGroupsAsString.apply(regex, "Just deployed to production! #success"),
                 Objects::equals);
@@ -30,7 +30,7 @@ public class HashtagRegexTest extends BasicKataTestBase {
             "E.g.: '#coding is #fun' returns '#coding,#fun'")
     @Order(2)
     void testMultipleHashtags() {
-        verify(new HashtagRegexKata(),
+        verifyNoArgKata(new HashtagRegexKata(),
                 "#java,#regex",
                 regex -> regexGroupsAsString.apply(regex, "Learning #java and #regex today."),
                 Objects::equals);
@@ -41,7 +41,7 @@ public class HashtagRegexTest extends BasicKataTestBase {
             "E.g.: '#top_10' returns '#top_10'")
     @Order(3)
     void testNumbersAndUnderscores() {
-        verify(new HashtagRegexKata(),
+        verifyNoArgKata(new HashtagRegexKata(),
                 "#force_be_with_you,#2024",
                 regex -> regexGroupsAsString.apply(regex, "May the #force_be_with_you in #2024!"),
                 Objects::equals);
@@ -52,7 +52,7 @@ public class HashtagRegexTest extends BasicKataTestBase {
             "E.g.: 'We are # 1' returns ''")
     @Order(4)
     void testInvalidHashtags() {
-        verify(new HashtagRegexKata(),
+        verifyNoArgKata(new HashtagRegexKata(),
                 "",
                 regex -> regexGroupsAsString.apply(regex, "We are # 1 in the # world"),
                 Objects::equals);
@@ -63,7 +63,7 @@ public class HashtagRegexTest extends BasicKataTestBase {
             "E.g.: 'Look (#cool)!' returns '#cool'")
     @Order(5)
     void testHashtagsWithPunctuation() {
-        verify(new HashtagRegexKata(),
+        verifyNoArgKata(new HashtagRegexKata(),
                 "#mindblown,#day",
                 regex -> regexGroupsAsString.apply(regex, "Wow (#mindblown)! What a #day."),
                 Objects::equals);

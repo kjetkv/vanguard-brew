@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static io.code.vanguard.brew.Validators.verifySameExceptionClass;
-
 @DisplayName("Constructing - The Caching Highlander (Static Factory)")
 @Tag("Constructing")
 public class CachingHighlanderTest extends BasicKataTestBase {
@@ -18,11 +16,8 @@ public class CachingHighlanderTest extends BasicKataTestBase {
     void testSameUrlReturnsSameInstance() {
         CachingHighlanderKata originalInstance = CachingHighlanderKata.getInstance("db://main-cluster");
 
-        verify(
+        verifyClass(
                 originalInstance,
-                conn -> {
-                    //Do Nothing
-                },
                 conn -> CachingHighlanderKata.getInstance("db://main-cluster"),
                 originalInstance,
                 (expected, actual) -> expected == actual
@@ -35,11 +30,8 @@ public class CachingHighlanderTest extends BasicKataTestBase {
     void testDifferentUrlReturnsDifferentInstance() {
         CachingHighlanderKata originalInstance = CachingHighlanderKata.getInstance("db://replica-a");
 
-        verify(
+        verifyClass(
                 originalInstance,
-                conn -> {
-                    //Do Nothing
-                },
                 conn -> CachingHighlanderKata.getInstance("db://replica-b"),
                 originalInstance,
                 (expected, actual) -> expected != actual
@@ -50,10 +42,9 @@ public class CachingHighlanderTest extends BasicKataTestBase {
     @DisplayName("When the URL is null, throws an IllegalArgumentException.")
     @Order(3)
     void testNullUrlThrowsException() {
-        verify(
+        verifyException(
                 () -> CachingHighlanderKata.getInstance(null),
-                new IllegalArgumentException(),
-                verifySameExceptionClass
+                new IllegalArgumentException()
         );
     }
 
@@ -61,10 +52,9 @@ public class CachingHighlanderTest extends BasicKataTestBase {
     @DisplayName("When the URL is blank, throws an IllegalArgumentException.")
     @Order(4)
     void testBlankUrlThrowsException() {
-        verify(
+        verifyException(
                 () -> CachingHighlanderKata.getInstance("   "),
-                new IllegalArgumentException(),
-                verifySameExceptionClass
+                new IllegalArgumentException()
         );
     }
 }
