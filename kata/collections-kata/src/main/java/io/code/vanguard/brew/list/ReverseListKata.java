@@ -8,6 +8,6 @@ public class ReverseListKata implements BasicKata<List<Integer>, List<Integer>> 
 
     @Override
     public List<Integer> solve(List<Integer> input) {
-        return null;
+        return input.reversed();
     }
 }

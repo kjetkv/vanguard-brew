@@ -8,6 +8,9 @@ public class NumberDoublerKata implements BasicKata<List<Integer>, List<Integer>
 
     @Override
     public List<Integer> solve(List<Integer> input) {
-        return null;
+        return input
+                .stream()
+                .map(i -> i * 2)
+                .toList();
     }
 }

@@ -8,6 +8,9 @@ public class PositiveIntegerSortKata implements BasicKata<List<Integer>, List<In
 
     @Override
     public List<Integer> solve(List<Integer> input) {
-        return null;
+        return input.stream()
+                .filter(i -> i > 0)
+                .sorted()
+                .toList();
     }
 }

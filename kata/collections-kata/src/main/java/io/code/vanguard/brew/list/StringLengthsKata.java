@@ -8,6 +8,8 @@ public class StringLengthsKata implements BasicKata<List<String>, List<Integer>>
 
     @Override
     public List<Integer> solve(List<String> input) {
-        return null;
+        return input.stream()
+                .map(String::length)
+                .toList();
     }
 }

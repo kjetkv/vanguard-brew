@@ -8,6 +8,8 @@ public class EvensOnlyKata implements BasicKata<List<Integer>, List<Integer>> {
 
     @Override
     public List<Integer> solve(List<Integer> input) {
-        return null;
+        return input.stream()
+                .filter(i -> i % 2 == 0)
+                .toList();
     }
 }

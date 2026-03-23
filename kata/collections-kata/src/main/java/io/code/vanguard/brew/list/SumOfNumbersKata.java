@@ -8,6 +8,8 @@ public class SumOfNumbersKata implements BasicKata<List<Integer>, Integer> {
 
     @Override
     public Integer solve(List<Integer> input) {
-        return null;
+        return input.stream()
+                .mapToInt(Integer::intValue)
+                .sum();
     }
 }

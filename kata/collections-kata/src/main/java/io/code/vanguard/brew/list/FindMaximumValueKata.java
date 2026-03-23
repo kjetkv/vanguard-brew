@@ -8,6 +8,8 @@ public class FindMaximumValueKata implements BasicKata<List<Integer>, Integer> {
 
     @Override
     public Integer solve(List<Integer> input) {
-        return null;
+        return input.stream()
+                .max(Integer::compareTo)
+                .orElse(null);
     }
 }
