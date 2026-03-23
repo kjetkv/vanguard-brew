@@ -4,6 +4,8 @@ import io.code.vanguard.brew.BasicKata;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class AnimalListToMapKata implements BasicKata<List<AnimalListToMapKata.Animal>, Map<String, AnimalListToMapKata.Animal>> {
 
@@ -12,6 +14,9 @@ public class AnimalListToMapKata implements BasicKata<List<AnimalListToMapKata.A
 
     @Override
     public Map<String, Animal> solve(List<Animal> input) {
-        return null;
+        return input.stream()
+                .filter(Objects::nonNull)
+                .filter(animal -> animal.id != null)
+                .collect(Collectors.toMap(Animal::id, animal -> animal, (_, right) -> right));
     }
 }
