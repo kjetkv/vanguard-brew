@@ -6,8 +6,8 @@ import org.junit.platform.suite.api.Suite;
 import org.junit.platform.suite.api.SuiteDisplayName;
 
 @Suite
-@SuiteDisplayName("The Sealing Kata Master Suite")
+@SuiteDisplayName("The StateMachine Kata Master Suite")
 @SelectPackages("io.code.vanguard.brew")
-@IncludeTags("Sealing")
-public class SealingKatasSuite {
+@IncludeTags("StateMachine")
+public class StateMachineKatasSuite {
 }

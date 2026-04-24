@@ -8,6 +8,8 @@ import java.util.function.Consumer;
 import java.util.regex.MatchResult;
 import java.util.regex.Pattern;
 
+import static java.util.Optional.ofNullable;
+
 /**
  * An interface containing all that is needed for printing.
  */
@@ -56,19 +58,19 @@ public interface Printerface {
             case String[] strings -> {
                 return Arrays.toString(strings);
             }
+            case String s when s.isEmpty() -> {
+                return "''";
+            }
+            case Throwable exception when ofNullable(exception.getMessage()).orElse("").isBlank() -> {
+                return exception.getClass().getSimpleName();
+            }
             case Throwable exception -> {
-                return exception.getClass()
-                                .getSimpleName();
+                return "%s (%s)".formatted(exception.getClass().getSimpleName(), exception.getMessage());
             }
             default -> {
+                return input.toString();
             }
         }
-
-        if ("".equals(input)) {
-            return "''";
-        }
-
-        return input.toString();
     }
 
     private static void printWrapped(String header,
@@ -80,10 +82,10 @@ public interface Printerface {
         String regex = "(?s).{1," + (textWidth - headerWidth) + "}(?!\\S)";
 
         Pattern.compile(regex)
-               .matcher(text)
-               .results()
-               .map(MatchResult::group)
-               .forEachOrdered(doPrint(header, headerWidth, isFirstLine));
+                .matcher(text)
+                .results()
+                .map(MatchResult::group)
+                .forEachOrdered(doPrint(header, headerWidth, isFirstLine));
     }
 
     private static @NonNull Consumer<String> doPrint(String header,
