@@ -1,5 +1,6 @@
 package io.code.vanguard.brew;
 
+import java.util.Objects;
 import java.util.function.BiPredicate;
 
 
@@ -16,4 +17,10 @@ public interface Validators {
             (expected, actual) ->
                     expected != null && expected.getClass()
                                                 .isInstance(actual);
+    /**
+     * Validate that the actual exception is the same as expected, and that the exception messages are equal.
+     */
+    BiPredicate<Throwable, Throwable> verifySameExceptionClassAndMessage = (expected, actual) ->
+            verifySameExceptionClass.test(expected, actual) &&
+                    Objects.equals(expected.getMessage(), actual.getMessage());
 }
