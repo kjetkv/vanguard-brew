@@ -64,6 +64,14 @@ public interface Printerface {
             case Throwable exception when ofNullable(exception.getMessage()).orElse("").isBlank() -> {
                 return exception.getClass().getSimpleName();
             }
+            case Throwable exception when ofNullable(exception.getCause()).isPresent() -> {
+                return "%s (%s)\nCaused by: %s (%s)".formatted(
+                        exception.getClass().getSimpleName(),
+                        exception.getMessage(),
+                        exception.getCause().getClass().getSimpleName(),
+                        exception.getCause().getMessage()
+                );
+            }
             case Throwable exception -> {
                 return "%s (%s)".formatted(exception.getClass().getSimpleName(), exception.getMessage());
             }

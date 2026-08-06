@@ -150,8 +150,7 @@ public class BasicKataTestBase {
                                       R expectedResult,
                                       BiPredicate<R, R> verifier) {
 
-        verifyClass(kata, k -> {
-        }, extractor, expectedResult, verifier);
+        verifyClass(kata, k -> { }, extractor, expectedResult, verifier);
     }
 
     /**

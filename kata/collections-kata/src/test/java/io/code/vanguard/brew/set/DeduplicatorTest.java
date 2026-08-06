@@ -56,15 +56,4 @@ public class DeduplicatorTest extends BasicKataTestBase {
                 Set.of(4, 5, 6),
                 Set::equals);
     }
-
-/*    @Test
-    @DisplayName("When receiving a list with null elements or an entirely null list, returns an empty Set safely. " +
-            "E.g.: null returns []")
-    @Order(5)
-    void testNullHandling() {
-        verify(new DeduplicatorKata(),
-                null,
-                Set.of(),
-                Set::equals);
-    }*/
 }
