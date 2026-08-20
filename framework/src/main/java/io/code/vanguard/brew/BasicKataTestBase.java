@@ -70,6 +70,39 @@ public class BasicKataTestBase {
     }
 
     /**
+     * {@link BasicKata} verify method that uses {@link Function} as extractor.
+     * <p/>
+     * A method to handle logging and assertions.
+     * Use this instead of direct Assertions.assertEquals in your tests.
+     *
+     * @param kata      The implementation logic
+     * @param input     The input
+     * @param expected  The expected output
+     * @param extractor The extractor to calculate the result based on the kata
+     * @param verifier  The verifier used for comparing
+     * @param <I>       Input type
+     * @param <A>       Output type of the kata
+     * @param <R>       Result type from the extractor
+     */
+    protected <I, R, A> void verifyFunctionalKata(BasicKata<I, A> kata,
+                                                  I input,
+                                                  R expected,
+                                                  Function<A, R> extractor,
+                                                  BiPredicate<R, R> verifier) {
+        printWithHeader("Expecting", prettyFormat(expected));
+
+        A actual = kata.solve(input);
+
+        printWithHeader("Returned", prettyFormat(actual));
+
+        R result = Optional.ofNullable(actual)
+                .map(extractor)
+                .orElse(null);
+
+        doVerify(expected, verifier, result);
+    }
+
+    /**
      * {@link BasicNoArgKata} verify method.
      * <p/>
      * A method to handle logging and assertions.

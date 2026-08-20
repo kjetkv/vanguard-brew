@@ -7,7 +7,7 @@
     <parent>
         <groupId>io.code.vanguard.brew</groupId>
         <artifactId>VanguardBrew</artifactId>
-        <version>0.1.4</version>
+        <version>0.1.9</version>
     </parent>
 
     <artifactId>VanguardBrewKatas</artifactId>
@@ -19,13 +19,14 @@
         <module>string-kata</module>
         <module>date-kata</module>
         <module>objects-kata</module>
+        <module>processing-kata</module>
     </modules>
 
     <dependencies>
         <dependency>
             <groupId>io.code.vanguard.brew</groupId>
             <artifactId>VanguardBrewFramework</artifactId>
-            <version>0.1.4</version>
+            <version>0.1.9</version>
         </dependency>
         <dependency>
             <groupId>org.junit.platform</groupId>

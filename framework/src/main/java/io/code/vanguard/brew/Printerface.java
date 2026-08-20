@@ -64,6 +64,14 @@ public interface Printerface {
             case Throwable exception when ofNullable(exception.getMessage()).orElse("").isBlank() -> {
                 return exception.getClass().getSimpleName();
             }
+            case Throwable exception when ofNullable(exception.getCause()).isPresent() -> {
+                return "%s (%s)\nCaused by: %s (%s)".formatted(
+                        exception.getClass().getSimpleName(),
+                        exception.getMessage(),
+                        exception.getCause().getClass().getSimpleName(),
+                        exception.getCause().getMessage()
+                );
+            }
             case Throwable exception -> {
                 return "%s (%s)".formatted(exception.getClass().getSimpleName(), exception.getMessage());
             }
@@ -79,7 +87,7 @@ public interface Printerface {
                                      int textWidth) {
         final AtomicBoolean isFirstLine = new AtomicBoolean(true);
 
-        String regex = "(?s).{1," + (textWidth - headerWidth) + "}(?!\\S)";
+        String regex = "(.{1," + (textWidth - headerWidth) + "})(?:(?<=[\\[\\],])|\\s+|$)";
 
         Pattern.compile(regex)
                 .matcher(text)

@@ -140,17 +140,23 @@ into one clean, functional milestone.
 In most modern IDEs (IntelliJ, VS Code), you can run these entire suites with a single click to validate an entire
 topic.
 
-| Suite                        | Focus Area                                                                            |
-|:-----------------------------|:--------------------------------------------------------------------------------------|
-| **`StringKatasSuite`**       | Text manipulation, RegEx, and modern String manipulation.                             |
-| **`ListKatasSuite`**         | Filtering, sorting, and transforming ordered data.                                    |
-| **`MapKatasSuite`**          | Key-value logic and complex data structures.                                          |
-| **`SetKatasSuite`**          | Uniqueness, membership, and collection logic.                                         |
-| **`DateKatasSuite`**         | Calendar-based logic involving `LocalDate`, `Period`, and chronological calculations. |
-| **`TimeKatasSuite`**         | Clock-based logic involving `LocalTime`, and precise `Duration` measurements.         |
-| **`ConstructingKatasSuite`** | How to instanciate objects, and validations before.                                   |
-| **`SealingKatasSuite`**      | Lock down domain models with sealed classes and exhaustive pattern matching.          |
-| **`StateMachineKatasSuite`** | Master state machines by building a pattern-matched espresso maker.                   |
+| Suite                        | Focus Area                                                                                                       |
+|:-----------------------------|:-----------------------------------------------------------------------------------------------------------------|
+| **`StringKatasSuite`**       | Text manipulation, RegEx, and modern String manipulation.                                                        |
+| **`ListKatasSuite`**         | Filtering, sorting, and transforming ordered data.                                                               |
+| **`MapKatasSuite`**          | Key-value logic and complex data structures.                                                                     |
+| **`SetKatasSuite`**          | Uniqueness, membership, and collection logic.                                                                    |
+| **`DateKatasSuite`**         | Calendar-based logic involving `LocalDate`, `Period`, and chronological calculations.                            |
+| **`TimeKatasSuite`**         | Clock-based logic involving `LocalTime`, and precise `Duration` measurements.                                    |
+| **`ConstructingKatasSuite`** | How to instanciate objects, and validations before.                                                              |
+| **`SealingKatasSuite`**      | Lock down domain models with sealed classes and exhaustive pattern matching.                                     |
+| **`StateMachineKatasSuite`** | Master state machines by building a pattern-matched espresso maker.                                              |
+| **`StreamKatasSuite`**       | Streamline functional data pipelines and aggregations using the Java Stream API.                                 |
+| **`ConcurrencyKatasSuite`**  | Master parallel brewing from raw OS threads to `VirtualThread`s.                                                 |
+| **`FunctionalKatasSuite`**   | Build unbreakable, null-safe processing pipelines using core functional interfaces.                              |
+| **`ExceptionsKatasSuite`**   | Isolate mechanical faults, manage checked exceptions, and translate legacy errors into actionable telemetry.     |
+| **`ResourcesKatasSuite`**    | Safely manage hardware lifecycles, adapt legacy components, and build blast-proof execution envelopes.           |
+| **`RetriesKatasSuite`**      | Handle transient physical failures utilizing iterative loops, exponential backoff scales, and randomized jitter. |
 
 ---
 

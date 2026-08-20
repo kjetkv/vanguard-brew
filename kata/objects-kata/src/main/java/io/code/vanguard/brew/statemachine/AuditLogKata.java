@@ -39,11 +39,11 @@ public class AuditLogKata implements BasicKata<List<AuditLogKata.Event>, AuditLo
 
     private State applyTransition(State current, Event event) {
         return switch (new TransitionRequest(current, event)) {
-            case TransitionRequest(State.Off __, var e) when e == Event.POWER_ON -> new State.Ready();
-            case TransitionRequest(State.Ready __, var e) when e == Event.BREW -> new State.Dirty();
-            case TransitionRequest(State.Ready __, var e) when e == Event.POWER_OFF -> new State.Off();
-            case TransitionRequest(State.Dirty __, var e) when e == Event.CLEAN -> new State.Ready();
-            case TransitionRequest(State.Dirty __, var e) when e == Event.POWER_OFF -> new State.Off();
+            case TransitionRequest(State.Off _, var e) when e == Event.POWER_ON -> new State.Ready();
+            case TransitionRequest(State.Ready _, var e) when e == Event.BREW -> new State.Dirty();
+            case TransitionRequest(State.Ready _, var e) when e == Event.POWER_OFF -> new State.Off();
+            case TransitionRequest(State.Dirty _, var e) when e == Event.CLEAN -> new State.Ready();
+            case TransitionRequest(State.Dirty _, var e) when e == Event.POWER_OFF -> new State.Off();
             default -> throw new IllegalStateException("Machine malfunctioned.");
         };
     }
